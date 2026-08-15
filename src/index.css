@@ -1,0 +1,183 @@
+@import "tailwindcss";
+
+@theme {
+  /* =========================
+     BRAND
+  ========================= */
+
+  --color-brand: #00e676;
+  --color-brand-dark: #00b85c;
+  --color-brand-light: #39f59a;
+
+  /* =========================
+     BACKGROUNDS
+  ========================= */
+
+  --color-bg-primary: #030a12;
+  --color-bg-secondary: #06111c;
+  --color-bg-sidebar: #020914;
+
+  /* =========================
+     SURFACES / CARDS
+  ========================= */
+
+  --color-surface: #071521;
+  --color-surface-light: #0b1b2a;
+  --color-surface-hover: #0e2233;
+
+  /* =========================
+     BORDERS
+  ========================= */
+
+  --color-border: #142b3d;
+  --color-border-light: #1b3548;
+  --color-border-brand: #00e676;
+
+  /* =========================
+     TEXT
+  ========================= */
+
+  --color-text-primary: #f5f7fa;
+  --color-text-secondary: #a8b3bf;
+  --color-text-muted: #667585;
+  --color-text-disabled: #465463;
+
+  /* =========================
+     ACCENTS
+  ========================= */
+
+  --color-cyan: #00c8ff;
+  --color-purple: #9b4dff;
+
+  /* =========================
+     STATUS
+  ========================= */
+
+  --color-live: #00e676;
+  --color-success: #00e676;
+  --color-warning: #ffc857;
+  --color-danger: #ff4d67;
+
+  /* =========================
+     TYPOGRAPHY
+  ========================= */
+
+  --font-display: "Rajdhani", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+
+/* =========================
+   INTER
+========================= */
+
+@font-face {
+  font-family: "Inter";
+  src: url("./fonts/Inter/Inter_18pt-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("./fonts/Inter/Inter_18pt-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("./fonts/Inter/Inter_18pt-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("./fonts/Inter/Inter_18pt-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* =========================
+   RAJDHANI
+========================= */
+
+@font-face {
+  font-family: "Rajdhani";
+  src: url("./fonts/Rajdhani/Rajdhani-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rajdhani";
+  src: url("./fonts/Rajdhani/Rajdhani-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rajdhani";
+  src: url("./fonts/Rajdhani/Rajdhani-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rajdhani";
+  src: url("./fonts/Rajdhani/Rajdhani-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* =========================
+   JETBRAINS MONO
+========================= */
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("./fonts/JetBrainsMono/JetBrainsMono-Regular.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("./fonts/JetBrainsMono/JetBrainsMono-Medium.woff2")
+    format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("./fonts/JetBrainsMono/JetBrainsMono-SemiBold.woff2")
+    format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("./fonts/JetBrainsMono/JetBrainsMono-Bold.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
