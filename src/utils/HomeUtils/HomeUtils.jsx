@@ -14,9 +14,17 @@ export function getDateRange() {
     timeZone: "Asia/Tehran",
   });
 
+  const tomorrowDate = new Date(now);
+  tomorrowDate.setDate(tomorrowDate.getDate() + 1);
+
+  const tomorrow = tomorrowDate.toLocaleDateString("en-CA", {
+    timeZone: "Asia/Tehran",
+  });
+
   return {
     today,
     yesterday,
+    tomorrow,
   };
 }
 

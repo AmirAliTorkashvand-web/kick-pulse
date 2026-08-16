@@ -1,4 +1,4 @@
-const leaguePriority = {
+export const leaguePriority = {
   // =====================
   // MAJOR INTERNATIONAL
   // =====================

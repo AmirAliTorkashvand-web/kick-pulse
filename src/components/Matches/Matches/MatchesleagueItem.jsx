@@ -1,15 +1,15 @@
 import { useState } from "react";
 
-export default function MatchesLeagueItem({ children }) {
+export default function MatchesLeagueItem({ children, league }) {
   const [isOpen, setIsOpen] = useState(true);
-
+  console.log(league);
   return (
     <div className="overflow-hidden rounded-2xl border border-border bg-surface shadow-sm">
       <div className="flex items-center justify-between border-b border-border bg-surface-light/70 px-4 py-3">
         <div className="flex min-w-0 items-center gap-3">
           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-surface">
             <img
-              src="https://media.api-sports.io/football/leagues/2.png"
+              src={league.logo}
               alt="Champions League"
               className="h-7 w-7 object-contain"
             />
@@ -17,10 +17,10 @@ export default function MatchesLeagueItem({ children }) {
 
           <div className="min-w-0">
             <h3 className="truncate text-sm font-bold text-white">
-              UEFA Champions League
+              {league.name}
             </h3>
 
-            <span className="text-xs text-text-secondary">Europe</span>
+            <span className="text-xs text-text-secondary">{league.round}</span>
           </div>
         </div>
 
