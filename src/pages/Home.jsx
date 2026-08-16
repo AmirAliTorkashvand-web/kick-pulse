@@ -37,7 +37,6 @@ export default function Home() {
   //       setMatches(data);
 
   //       const featuredMatches = getFeaturedMatches(data);
-  //       console.log(featuredMatches)
 
   //       setFixtures(featuredMatches);
   //     } catch (error) {
@@ -64,7 +63,6 @@ export default function Home() {
 
   //       setTopScorer(topFor);
 
-  //       console.log(topFor);
   //     } catch (error) {
   //       console.log("Error fetching top scorers:", error);
   //     }
@@ -108,8 +106,6 @@ export default function Home() {
 
   //       setTransfers(latestTransfers);
 
-  //       console.log("Selected team:", randomTeam);
-  //       console.log("Latest transfers:", latestTransfers);
   //     } catch (error) {
   //       console.log("Error fetching transfers:", error);
   //     }
@@ -130,8 +126,6 @@ export default function Home() {
 
   //       setTopAssiter(topFour);
 
-  //       console.log(topFour);
-  //       console.log(data)
   //     } catch (error) {
   //       console.log("Error fetching top scorers:", error);
   //     }
@@ -160,8 +154,6 @@ export default function Home() {
   //       });
 
   //       setStanding(data);
-  //       console.log("Selected league:", randomLeagueId);
-  //       console.log("Standing data:", data);
   //     } catch (error) {
   //       console.log("Error fetching standings:", error);
   //     }

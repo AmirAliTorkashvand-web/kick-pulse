@@ -28,7 +28,6 @@ export default function HomeStats({ matches }) {
 
   const topMatchesCount = getTodayTopMatches(matches, today);
   const biggestWin = getBiggestWin(matches, today);
-  console.log(biggestWin);
 
   return (
     <>
