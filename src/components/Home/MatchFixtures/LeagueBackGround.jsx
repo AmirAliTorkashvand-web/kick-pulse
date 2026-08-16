@@ -18,6 +18,11 @@ import coppaitaly from "../../../assets/images/coppaitaly.jpg";
 import dfbpokal from "../../../assets/images/dfbpokal.jpg";
 import frenchcup from "../../../assets/images/frenchcup.jpg";
 import carabao from "../../../assets/images/carabao.jpg";
+import community from "../../../assets/images/community.jpg";
+import spainSupercup from "../../../assets/images/spainSupercup.jpg";
+import italySupercup from "../../../assets/images/italySupercup.jpg";
+import franceSupercup from "../../../assets/images/franceSupercup.jpg";
+import germanySupercup from "../../../assets/images/germanySupercup.jpg";
 
 export const leagueBackgrounds = {
   39: premierLeague,
@@ -39,6 +44,11 @@ export const leagueBackgrounds = {
   81: dfbpokal,
   66: frenchcup,
   48: carabao,
+  528: community,
+  556: spainSupercup,
+  547: italySupercup,
+  529: germanySupercup,
+  526: franceSupercup,
 };
 
 export function getLeagueBackground(leagueId) {
