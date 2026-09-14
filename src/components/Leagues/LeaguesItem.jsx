@@ -1,14 +1,14 @@
 import { useState } from "react";
 
-export default function MatchesLeagueItem({ children, league , defaultOpen }) {
-  const [isOpen, setIsOpen] = useState(defaultOpen);
+export default function LeaguesItem({ children, league }) {
+  const [isOpen, setIsOpen] = useState(true);
   return (
     <div className="overflow-hidden rounded-2xl border border-border bg-surface shadow-sm">
       <div className="flex items-center justify-between border-b border-border bg-surface-light/70 px-4 py-3">
         <div className="flex min-w-0 items-center gap-3">
           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-surface">
             <img
-              src={league.flag ? league.flag : league.logo}
+              src={league.logo}
               alt="Champions League"
               className="h-7 w-7 object-contain"
             />
@@ -19,7 +19,7 @@ export default function MatchesLeagueItem({ children, league , defaultOpen }) {
               {league.name}
             </h3>
 
-            <span className="text-xs text-text-secondary">{league?.round}</span>
+            <span className="text-xs text-text-secondary">{league.round}</span>
           </div>
         </div>
 

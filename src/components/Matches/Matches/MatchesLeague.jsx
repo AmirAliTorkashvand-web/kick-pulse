@@ -1,3 +1,5 @@
+import { groupBy } from "../../../utils/LeagueUtils/LeagueUtils";
+import { filterMatches } from "../../../utils/MatchesUtils/MatchUtils";
 import {
   leaguePriority,
   teamPriority,
@@ -7,42 +9,19 @@ import MatchesLeagueItem from "./MatchesleagueItem";
 import MatchesLeagueMatchItem from "./MatchleagueMatchItem";
 
 export default function MatchesLeague({ matches, activeFilter }) {
-  const filteredMatches = matches?.filter((match) => {
-    const status = match.fixture.status.short;
+  const filteredMatches = filterMatches(matches, activeFilter);
 
-    if (activeFilter === "all") {
-      return true;
-    }
-
-    if (activeFilter === "live") {
-      return ["LIVE", "1H", "2H", "HT", "ET", "P"].includes(status);
-    }
-
-    if (activeFilter === "finished") {
-      return ["FT", "AET", "PEN"].includes(status);
-    }
-
-    if (activeFilter === "upcoming") {
-      return status === "NS";
-    }
-
-    return true;
-  });
-
-  const leagues = filteredMatches?.reduce((acc, match) => {
-    const leagueId = match.league.id;
-
-    if (!acc[leagueId]) {
-      acc[leagueId] = {
-        league: match.league,
-        matches: [],
-      };
-    }
-
-    acc[leagueId].matches.push(match);
-
-    return acc;
-  }, {});
+  const leagues = groupBy(
+    filteredMatches,
+    (match) => match.league.id,
+    (match) => ({
+      league: match.league,
+      matches: [],
+    }),
+    (group, match) => {
+      group.matches.push(match);
+    },
+  );
 
   const getLeagueScore = (league) => {
     const leagueScore = leaguePriority[league.league.id] ?? 0;
@@ -65,7 +44,7 @@ export default function MatchesLeague({ matches, activeFilter }) {
   return (
     <div className="col-span-8 flex flex-col gap-4">
       {sortedLeagues.map(({ league, matches }) => (
-        <MatchesLeagueItem key={league.id} league={league}>
+        <MatchesLeagueItem key={league.id} league={league} defaultOpen={true}>
           {matches.map((match) => (
             <MatchesLeagueMatchItem key={match.fixture.id} match={match} />
           ))}

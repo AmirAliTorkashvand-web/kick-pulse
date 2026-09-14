@@ -86,6 +86,8 @@ export const teamPriority = {
 
   2733: 35, // Esteghlal FC
   2737: 35, // Tractor Sazi
+  2744: 35, // Sepahan
+  2742: 35, // Perspolis
 };
 
 const nationaTeams = {

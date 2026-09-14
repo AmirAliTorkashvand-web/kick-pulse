@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
 import Home from "./pages/Home";
 import Matches from "./pages/Matches";
+import Leagues from "./pages/Leagues";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
         path: "matches",
         element: <Matches />,
       },
+      {
+        path: "leagues",
+        element: <Leagues />
+      }
     ],
   },
 ]);

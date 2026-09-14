@@ -17,3 +17,27 @@ export function getMatchDates() {
     tomorrow: createDate(1),
   };
 }
+
+export const filterMatches = (matches, activeFilter) => {
+  return matches.filter((match) => {
+    const status = match.fixture.status.short;
+
+    if (activeFilter === "all") {
+      return true;
+    }
+
+    if (activeFilter === "live") {
+      return ["LIVE", "1H", "2H", "HT", "ET", "P"].includes(status);
+    }
+
+    if (activeFilter === "finished") {
+      return ["FT", "AET", "PEN"].includes(status);
+    }
+
+    if (activeFilter === "upcoming") {
+      return status === "NS";
+    }
+
+    return true;
+  });
+};

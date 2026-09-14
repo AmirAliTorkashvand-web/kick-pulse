@@ -15,7 +15,6 @@ function Navbar() {
       <NavbarItem title="Home" icon={Home} to="/" />
       <NavbarItem title="Matches" icon={Matches} to="/matches" />
       <NavbarItem title="Leagues" icon={Leagues} to="/leagues" />
-      <NavbarItem title="Standings" icon={Standings} to="/standings" />
       <NavbarItem title="Players" icon={Players} to="/players" />
       <NavbarItem title="Teams" icon={Teams} to="/teams" />
       <NavbarItem title="Transfers" icon={Transfers} to="/transfers" />
