@@ -24,7 +24,6 @@ export default function LeaguesContainer({ league }) {
     (a, b) => b.score - a.score,
   );
   
-  console.log(leagues);
   return (
     <>
       <div className="col-span-8 flex flex-col gap-4">
