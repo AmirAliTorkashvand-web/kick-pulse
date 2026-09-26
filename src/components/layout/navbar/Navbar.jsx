@@ -2,9 +2,7 @@ import {
   Home,
   Leagues,
   Matches,
-  Standings,
   Players,
-  Transfers,
   Teams,
 } from "../../../assets/icons/navbar/NavbarIcons";
 import NavbarItem from "./NavbarItem";
@@ -17,7 +15,6 @@ function Navbar() {
       <NavbarItem title="Leagues" icon={Leagues} to="/leagues" />
       <NavbarItem title="Players" icon={Players} to="/players" />
       <NavbarItem title="Teams" icon={Teams} to="/teams" />
-      <NavbarItem title="Transfers" icon={Transfers} to="/transfers" />
     </nav>
   );
 }

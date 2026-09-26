@@ -1,8 +1,9 @@
-export function Matches() {
+export function Matches({ color = "currentColor" }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="currentColor"
+      style={{ color }}
       width="20px"
       height="20px"
       viewBox="0 0 496.013 496.013"
@@ -18,7 +19,7 @@ export function Matches() {
   );
 }
 
-export function Home() {
+export function Home({ color = "currentColor" }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -26,6 +27,7 @@ export function Home() {
       height="20px"
       viewBox="0 0 16 16"
       fill="none"
+      style={{ color }}
     >
       <path
         d="M1 6V15H6V11C6 9.89543 6.89543 9 8 9C9.10457 9 10 9.89543 10 11V15H15V6L8 0L1 6Z"
@@ -35,7 +37,7 @@ export function Home() {
   );
 }
 
-export function Leagues() {
+export function Leagues({ color = "currentColor" }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -43,6 +45,7 @@ export function Leagues() {
       height="20px"
       viewBox="0 0 24 24"
       fill="none"
+      style={{ color }}
     >
       <path
         d="M12.0002 16C6.24021 16 5.21983 10.2595 5.03907 5.70647C4.98879 4.43998 4.96365 3.80673 5.43937 3.22083C5.91508 2.63494 6.48445 2.53887 7.62318 2.34674C8.74724 2.15709 10.2166 2 12.0002 2C13.7837 2 15.2531 2.15709 16.3771 2.34674C17.5159 2.53887 18.0852 2.63494 18.5609 3.22083C19.0367 3.80673 19.0115 4.43998 18.9612 5.70647C18.7805 10.2595 17.7601 16 12.0002 16Z"
@@ -66,7 +69,7 @@ export function Leagues() {
         strokeLinecap="round"
       />
       <path
-        d="M15.5 22H8.5L8.83922 20.3039C8.93271 19.8365 9.34312 19.5 9.8198 19.5H14.1802C14.6569 19.5 15.0673 19.8365 15.1608 20.3039L15.5 22Z"
+        d="M15.5 22H8.5L8.83922 20.3039C8.93271 19.8365 9.34312 19.5 9.8198 19.5H14.1802C14.6569 19.8365 15.0673 19.5 15.1608 20.3039L15.5 22Z"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -83,7 +86,7 @@ export function Leagues() {
   );
 }
 
-export function Teams() {
+export function Teams({ color = "currentColor" }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -91,6 +94,7 @@ export function Teams() {
       height="20px"
       viewBox="0 0 24 24"
       fill="none"
+      style={{ color }}
     >
       <path
         d="M18 7.16C17.94 7.15 17.87 7.15 17.81 7.16C16.43 7.11 15.33 5.98 15.33 4.58C15.33 3.15 16.48 2 17.91 2C19.34 2 20.49 3.16 20.49 4.58C20.48 5.98 19.38 7.11 18 7.16Z"
@@ -138,7 +142,7 @@ export function Teams() {
   );
 }
 
-export function Players() {
+export function Players({ color = "currentColor" }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -146,6 +150,7 @@ export function Players() {
       height="20px"
       viewBox="0 0 24 24"
       fill="none"
+      style={{ color }}
     >
       <path
         d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
@@ -155,7 +160,7 @@ export function Players() {
   );
 }
 
-export function Standings() {
+export function Standings({ color = "currentColor" }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -163,18 +168,19 @@ export function Standings() {
       height="20px"
       viewBox="0 0 512 512"
       version="1.1"
+      style={{ color }}
     >
       <title>table-rows</title>
       <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
         <g fill="currentColor" transform="translate(42.666667, 106.666667)">
-          <path d="M3.55271368e-14,85.3333333 L106.666667,85.3333333 L106.666667,128 L3.55271368e-14,128 L3.55271368e-14,85.3333333 Z M3.55271368e-14,4.26325641e-14 L106.666667,4.26325641e-14 L106.666667,42.6666667 L3.55271368e-14,42.6666667 L3.55271368e-14,4.26325641e-14 Z M3.55271368e-14,170.666667 L106.666667,170.666667 L106.666667,213.333333 L3.55271368e-14,213.333333 L3.55271368e-14,170.666667 Z M3.55271368e-14,256 L106.666667,256 L106.666667,298.666667 L3.55271368e-14,298.666667 L3.55271368e-14,256 Z M149.333333,85.3333333 L426.666667,85.3333333 L426.666667,128 L149.333333,128 L149.333333,85.3333333 Z M149.333333,4.26325641e-14 L426.666667,4.26325641e-14 L426.666667,42.6666667 L149.333333,42.6666667 L149.333333,4.26325641e-14 Z M149.333333,170.666667 L426.666667,170.666667 L426.666667,213.333333 L149.333333,213.333333 L149.333333,170.666667 Z M149.333333,256 L426.666667,256 L426.666667,298.666667 L149.333333,298.666667 L149.333333,256 Z" />
+          <path d="M3.55271368e-14,85.3333333 L106.666667,85.3333333 L106.666667,128 L3.55271368e-14,128 L3.55271368e-14,85.3333333 Z M3.55271368e-14,4.26325641e-14 L106.666667,4.26325641e-14 L106.666667,42.6666667 L3.55271368e-14,42.6666667 L3.55271368e-14,4.26325641e-14 Z M3.55271368e-14,170.666667 L106.666667,170.666667 L106.666667,213.333333 L3.55271368e-14,213.333333 Z M3.55271368e-14,256 L106.666667,256 L106.666667,298.666667 L3.55271368e-14,298.666667 L3.55271368e-14,256 Z M149.333333,85.3333333 L426.666667,85.3333333 L426.666667,128 L149.333333,128 L149.333333,85.3333333 Z M149.333333,4.26325641e-14 L426.666667,4.26325641e-14 L426.666667,42.666667 L149.333333,42.666667 L149.333333,4.26325641e-14 Z M149.333333,170.666667 L426.666667,170.666667 L426.666667,213.333333 L149.333333,213.333333 Z M149.333333,256 L426.666667,256 L426.333333,298.666667 L149.333333,298.666667 L149.333333,256 Z" />
         </g>
       </g>
     </svg>
   );
 }
 
-export function Transfers() {
+export function Transfers({ color = "currentColor" }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -182,6 +188,7 @@ export function Transfers() {
       height="20px"
       viewBox="0 0 24 24"
       version="1.1"
+      style={{ color }}
     >
       <title>transfer_3_fill</title>
       <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
@@ -199,7 +206,7 @@ export function Transfers() {
   );
 }
 
-export function Search() {
+export function Search({ color = "currentColor" }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -207,10 +214,11 @@ export function Search() {
       height="20px"
       viewBox="0 0 24 24"
       fill="none"
+      style={{ color }}
     >
       <path
-        d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z"
-        stroke="#fff"
+        d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 15.7955 15.8111 21 21Z"
+        stroke="currentColor"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"

@@ -14,7 +14,7 @@ export default function MatchFiltersItem({
           : "border-border bg-surface-light hover:border-brand/40 hover:bg-surface-hover"
       }`}
     >
-      <Icon color={active ? "var(--color-brand)" : "white"} />
+      <Icon color={active ? "var(--color-brand)" : "white"}/>
 
       <span
         className={`text-sm font-semibold ${

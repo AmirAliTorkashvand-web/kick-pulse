@@ -1,3 +1,23 @@
+import { useEffect } from "react";
+import { getLeague } from "../../services/Home/MatchContentServices";
+
+export function fetchLeague(setLeagues) {
+  return useEffect(() => {
+    const fetchLeagues = async () => {
+      try {
+        const response = await getLeague({
+          season: 2024,
+        });
+        setLeagues(response.response);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchLeagues();
+  }, []);
+}
+
 export function mapLeague(league) {
   return {
     id: league.league.id,

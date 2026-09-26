@@ -10,10 +10,10 @@ import Leagues from "./pages/Leagues";
 
 import Players from "./pages/Players";
 
-import PlayerInfo from "./components/Players/PlayerInfo/PlayerInfo";
-
-import { useEffect, useState } from "react";
-import { getPlayers } from "./services/Players/TeamPlayersService";
+import Teams from "./pages/Teams";
+import TeamInfo from "./components/Teams/TeamInfo/TeamInfo";
+import { useEffect , useState } from "react";
+import { getTeams } from "./services/Players/TeamPlayersService";
 
 function App() {
   const router = createBrowserRouter([
@@ -36,6 +36,10 @@ function App() {
         {
           path: "players",
           element: <Players />,
+        },
+        {
+          path: "teams",
+          element: <Teams />,
         },
       ],
     },

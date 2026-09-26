@@ -7,4 +7,5 @@ export const ENDPOINTS = {
   topAssisters: "players/topassists",
   transfers: "/transfers",
   standing: "/standings",
+  teamStats: "/teams/statistics",
 };
