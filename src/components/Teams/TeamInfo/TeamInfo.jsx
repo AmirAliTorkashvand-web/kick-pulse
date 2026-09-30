@@ -107,7 +107,7 @@ export default function TeamInfo({ teamDetail }) {
 
       {active === "squad" && (
         <>
-          <TeamSquad player={players}/>
+          <TeamSquad player={players} />
         </>
       )}
     </>

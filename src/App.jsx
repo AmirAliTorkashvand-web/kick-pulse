@@ -11,11 +11,9 @@ import Leagues from "./pages/Leagues";
 import Players from "./pages/Players";
 
 import Teams from "./pages/Teams";
-import TeamInfo from "./components/Teams/TeamInfo/TeamInfo";
-import { useEffect , useState } from "react";
-import { getTeams } from "./services/Players/TeamPlayersService";
 
 function App() {
+
   const router = createBrowserRouter([
     {
       path: "/",

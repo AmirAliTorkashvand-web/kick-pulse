@@ -1,7 +1,7 @@
-export default function LeagueTournamentsItem({ league }) {
+export default function LeagueTournamentsItem({ league, onClick }) {
   return (
     <>
-      <div>
+      <div onClick={onClick}>
         <div className="group flex items-center gap-4 px-4 py-4 transition-colors hover:bg-surface-light/60">
           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-surface">
             <img

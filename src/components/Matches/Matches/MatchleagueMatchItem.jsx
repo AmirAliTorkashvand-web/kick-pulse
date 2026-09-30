@@ -1,8 +1,8 @@
 import { getMatchTime } from "../../../utils/HomeUtils/HomeUtils";
 
-export default function MatchesLeagueMatchItem({ match }) {
+export default function MatchesLeagueMatchItem({ match }) {  
   return (
-    <div className="group flex items-center gap-4 px-4 py-4 transition-colors hover:bg-surface-light/60">
+    <div className="group flex items-center gap-4 px-4 py-4 transition-colors hover:bg-surface-light/60 border border-border rounded-lg">
       <div className="flex w-28 shrink-0 flex-col gap-1">
         <span className="text-[10px] font-semibold uppercase tracking-wider text-text-muted">
           {match.league.name}
