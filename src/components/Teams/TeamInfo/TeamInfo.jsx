@@ -65,9 +65,9 @@ export default function TeamInfo({ teamDetail }) {
     <>
       <TeamInfoFixture team={teamDetail} />
 
-      <TeamNavigation setActive={setActive} active={active} />
+      <TeamNavigation setActive={setActive} active={active} first="Overview" second="Fixture" third="Team stats" fourthTitle="Squad"/>
 
-      {active === "overview" && (
+      {active === "Overview" && (
         <>
           <div className="grid grid-cols-8 gap-4">
             <TeamDetailShared title="League" col={5}>
@@ -91,7 +91,7 @@ export default function TeamInfo({ teamDetail }) {
         </>
       )}
 
-      {active === "fixtures" && (
+      {active === "Fixtures" && (
         <>
           {fixtures?.response?.map((fixture) => (
             <MatchesLeagueMatchItem key={fixture.fixture.id} match={fixture} />
@@ -99,13 +99,13 @@ export default function TeamInfo({ teamDetail }) {
         </>
       )}
 
-      {active === "stats" && (
+      {active === "Team stats" && (
         <>
           <TeamStats teamDetail={stats} />
         </>
       )}
 
-      {active === "squad" && (
+      {active === "Squad" && (
         <>
           <TeamSquad player={players} />
         </>

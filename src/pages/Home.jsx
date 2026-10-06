@@ -43,7 +43,6 @@ export default function Home() {
   //       console.log("Error fetching home fixtures:", error);
   //     }
   //   };
-
   //   fetchHomeFixtures();
   // }, []);
 

@@ -11,8 +11,29 @@ import Leagues from "./pages/Leagues";
 import Players from "./pages/Players";
 
 import Teams from "./pages/Teams";
+import MatchInfo from "./components/Matches/MatchInfo/MatchInfo";
+import {
+  getFixtures,
+  getHomeFixtures,
+} from "./services/Home/MatchFixtureService";
+import { getFeaturedMatches } from "./utils/HomeUtils/HomeUtils";
+import { useEffect, useState } from "react";
 
 function App() {
+  // const [fixture, setFixture] = useState([]);
+
+  // useEffect(() => {
+  //   const fetchFixture = async () => {
+  //     const data = await getFixtures({
+  //       id: 1528928,
+  //     });
+
+  //     setFixture(data);
+  //     console.log(data);
+  //   };
+
+  //   fetchFixture();
+  // }, []);
 
   const router = createBrowserRouter([
     {
@@ -39,6 +60,10 @@ function App() {
           path: "teams",
           element: <Teams />,
         },
+        // {
+        //   path: "transfers",
+        //   element: <MatchInfo fixtureData={fixture} />,
+        // },
       ],
     },
   ]);

@@ -54,7 +54,7 @@ export function Time({ className = "" }) {
   );
 }
 
-export function Ball({ className = "" }) {
+export function Ball({ className = "", color = "currentColor" }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -63,6 +63,7 @@ export function Ball({ className = "" }) {
       viewBox="0 0 256 256"
       fill="none"
       className={className}
+      color={color}
     >
       <circle
         cx="127.98"
@@ -71,6 +72,7 @@ export function Ball({ className = "" }) {
         stroke="currentColor"
         strokeWidth="8"
       />
+
       <line
         x1="211.94"
         x2="44.03"
@@ -79,6 +81,7 @@ export function Ball({ className = "" }) {
         stroke="currentColor"
         strokeWidth="8"
       />
+
       <line
         x1="44.03"
         x2="211.94"
@@ -87,11 +90,13 @@ export function Ball({ className = "" }) {
         stroke="currentColor"
         strokeWidth="8"
       />
+
       <path
         d="M122.33 9.2A96.16 96.16 0 0 1 9.6 121.94"
         stroke="currentColor"
         strokeWidth="8"
       />
+
       <path
         d="M246.75 133.62A96.15 96.15 0 0 0 134 246.36"
         stroke="currentColor"

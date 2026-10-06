@@ -6,36 +6,46 @@ import {
   Teams,
 } from "../../../assets/icons/navbar/NavbarIcons";
 
-export default function TeamNavigation({ setActive , active }) {
+export default function TeamNavigation({
+  setActive,
+  active,
+  first,
+  second,
+  third,
+  fourth = true,
+  fourthTitle,
+}) {
   return (
     <div className="col-span-8 grid grid-cols-8 gap-3 mt-4">
       <MatchFiltersItem
-        title="Overview"
+        title={first}
         icon={Home}
-        active={active === "overview"}
-        onClick={() => setActive("overview")}
+        active={active === first}
+        onClick={() => setActive(first)}
       />
 
       <MatchFiltersItem
-        title="Fixtures"
+        title={second}
         icon={CalendarIcon}
-        active={active === "fixtures"}
-        onClick={() => setActive("fixtures")}
+        active={active === second}
+        onClick={() => setActive(second)}
       />
 
       <MatchFiltersItem
-        title="Team Stats"
+        title={third}
         icon={Standings}
-        active={active === "stats"}
-        onClick={() => setActive("stats")}
+        active={active === third}
+        onClick={() => setActive(third)}
       />
 
-      <MatchFiltersItem
-        title="Squad"
-        icon={Teams}
-        active={active === "squad"}
-        onClick={() => setActive("squad")}
-      />
+      {fourth && (
+        <MatchFiltersItem
+          title={fourthTitle}
+          icon={Teams}
+          active={active === fourth}
+          onClick={() => setActive(fourth)}
+        />
+      )}
     </div>
   );
 }

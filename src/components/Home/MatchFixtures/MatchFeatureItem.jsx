@@ -2,8 +2,7 @@ import { getMatchTime } from "../../../utils/HomeUtils/HomeUtils";
 import { hasLeagueBackground } from "./LeagueBackGround";
 
 function MatchFixtureItem({ background, match }) {
-
-  const hasBackground = hasLeagueBackground(match.league.id);
+  const hasBackground = hasLeagueBackground(match?.league?.id);
 
   return (
     <div
@@ -16,13 +15,13 @@ function MatchFixtureItem({ background, match }) {
         {!hasBackground && (
           <div className="mb-5 flex items-center justify-center gap-2">
             <img
-              src={match.league.logo}
+              src={match?.league?.logo}
               alt=""
               className="h-6 w-6 object-contain"
             />
 
             <span className="text-sm font-bold text-white">
-              {match.league.name}
+              {match?.league?.name}
             </span>
           </div>
         )}

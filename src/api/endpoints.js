@@ -8,4 +8,5 @@ export const ENDPOINTS = {
   transfers: "/transfers",
   standing: "/standings",
   teamStats: "/teams/statistics",
+  matchEvents: "/fixtures/events",
 };

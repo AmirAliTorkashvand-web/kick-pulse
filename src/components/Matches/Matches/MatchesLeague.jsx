@@ -8,7 +8,7 @@ import {
 import MatchesLeagueItem from "./MatchesleagueItem";
 import MatchesLeagueMatchItem from "./MatchleagueMatchItem";
 
-export default function MatchesLeague({ matches, activeFilter }) {
+export default function MatchesLeague({ matches, activeFilter, setMatchId }) {
   const filteredMatches = filterMatches(matches, activeFilter);
 
   const leagues = groupBy(
@@ -46,7 +46,9 @@ export default function MatchesLeague({ matches, activeFilter }) {
       {sortedLeagues.map(({ league, matches }) => (
         <MatchesLeagueItem key={league.id} league={league} defaultOpen={true}>
           {matches.map((match) => (
-            <MatchesLeagueMatchItem key={match.fixture.id} match={match} />
+            <div onClick={() => setMatchId(match.fixture.id)}>
+              <MatchesLeagueMatchItem key={match.fixture.id} match={match} />
+            </div>
           ))}
         </MatchesLeagueItem>
       ))}
