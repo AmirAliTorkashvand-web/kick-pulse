@@ -16,9 +16,7 @@ export default function PlayerInfoFixture({ player }) {
     player[0].statistics,
     player[0].player.nationality,
   );
-
-  console.log(player);
-
+  
   return (
     <div
       className="relative flex h-[300px] overflow-hidden rounded-2xl border border-[#142b3d] bg-cover bg-center bg-no-repeat"

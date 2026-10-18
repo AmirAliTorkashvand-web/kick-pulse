@@ -290,7 +290,5 @@ export function getStatsMeta({ stat }) {
     teamStats[positionIndex("Total Shots")],
   ];
 
-  console.log(teamStats);
-
   return teamStats;
 }

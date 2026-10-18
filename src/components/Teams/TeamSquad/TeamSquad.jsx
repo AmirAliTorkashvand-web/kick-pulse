@@ -3,7 +3,6 @@ import { positionColors } from "../../../utils/TeamUtils/TeamUtils";
 import TeamSquadItem from "./TeamSquadItem";
 
 export default function TeamSquad({ player }) {
-  console.log(player);
   const playerData = player.data.response;
 
   const positions = ["Goalkeeper", "Defender", "Midfielder", "Attacker"];
@@ -15,7 +14,6 @@ export default function TeamSquad({ player }) {
           (playerDetail) =>
             playerDetail.statistics[0].games.position === position,
         );
-        console.log(filteredPlayers);
         const color = positionColors(position);
 
         return (

@@ -23,7 +23,6 @@ export default function ({ matches }) {
       });
 
       setFixture(data);
-      console.log(data);
     };
 
     fetchFixture();

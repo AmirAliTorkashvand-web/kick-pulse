@@ -16,8 +16,6 @@ export default function PlayerAppearancesChart({ player }) {
     ["appearences", ["games", "appearences"]],
   ]);
 
-  console.log(data)
-
   return (
     <div className="w-full rounded-xl bg-surface p-4">
       <div className="h-[300px] w-full">

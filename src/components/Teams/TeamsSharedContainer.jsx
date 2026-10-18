@@ -56,7 +56,6 @@ export default function TeamsSharedContainer({ leagues }) {
         });
 
         setTeamDetail(response.data.response ?? []);
-        console.log("Team response:", response.data.response);
       } catch (err) {
         console.error("Failed to fetch team details:", err);
       }
@@ -107,7 +106,6 @@ export default function TeamsSharedContainer({ leagues }) {
       </div>
       {(step === "teamDetail" || teamId) && (
         <>
-          {console.log(teamDetail)}
           <TeamInfo teamDetail={teamDetail} />
         </>
       )}

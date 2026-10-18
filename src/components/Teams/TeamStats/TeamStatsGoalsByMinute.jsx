@@ -4,7 +4,6 @@ import TeamStatsGoalsByMinuteChart from "./TeamStatsGoalsByMinuteChart";
 
 export default function TeamStatsGoalsByMinute({ team }) {
   const data = goalsByMinuteData(team);
-  // console.log(data);
   return (
     <>
       <HomeSharedContent title="Goals by minute" col={3}>

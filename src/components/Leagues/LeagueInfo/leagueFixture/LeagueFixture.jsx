@@ -5,8 +5,7 @@ import TeamInfoFixtureItem from "../../../Teams/TeamInfo/TeamInfoFixtureItem";
 
 export default function LeagueFixture({ leagueData }) {
   if (!leagueData.length) return null;
-
-  console.log(leagueData);
+  
   const league = leagueData[0].league;
 
   return (

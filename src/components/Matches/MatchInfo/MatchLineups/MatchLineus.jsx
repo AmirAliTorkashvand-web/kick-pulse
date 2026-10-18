@@ -13,7 +13,6 @@ export default function MatchLineup({ fixture }) {
     teamId: fixture?.teams?.away?.id,
     field: "startXI",
   });
-  console.log(homePlayers);
 
   return (
     <>

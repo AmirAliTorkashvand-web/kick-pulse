@@ -5,7 +5,6 @@ import LeagueStatsItem from "./LeagueStatsItem";
 
 export default function LeagueStats({ leagueData }) {
   if (!leagueData.length) return null;
-  console.log(leagueData);
 
   const league = leagueData[0].league;
 

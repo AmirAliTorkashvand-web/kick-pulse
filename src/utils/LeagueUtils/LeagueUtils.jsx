@@ -9,15 +9,10 @@ import {
 import { getFixtures } from "../../services/Home/MatchFixtureService";
 
 export async function fetchLeagueStanding(leagueId) {
-  console.log("leagueId:", leagueId);
-
   const response = await getStandings({
     season: 2024,
     league: leagueId,
   });
-
-  console.log("getStandings response:", response);
-  console.log("response.response:", response?.response);
 
   return response?.response;
 }

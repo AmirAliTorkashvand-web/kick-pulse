@@ -11,7 +11,6 @@ import MatchStats from "./MatchStats/MatchStats";
 export default function MatchInfo({ fixtureData }) {
   if (!fixtureData.response) return null;
   const fixture = fixtureData?.response?.[0];
-  console.log(fixture);
   const [step, setStep] = useState("Overview");
 
   return (

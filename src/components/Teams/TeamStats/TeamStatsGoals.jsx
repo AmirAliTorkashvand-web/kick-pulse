@@ -5,7 +5,6 @@ import TeamStatsInfoBox from "./TeamStatsInfoBox";
 export default function TeamStatsGoals({ team }) {
   if (!team?.goals) return null;
 
-  console.log(team.goals)
   return (
     <HomeSharedContent title="Goals" col={2}>
       <div className="grid grid-cols-2 gap-3">

@@ -18,7 +18,6 @@ export default function MatchTimeline({ fixtureData }) {
         <HomeSharedContent title="Events" col={8}>
           {eventsSide.map((item) => {
             const meta = getEventMeta({ event: item.event });
-            console.log(meta);
             return (
               <MatchTimelineItem
                 Icon={meta.Icon}

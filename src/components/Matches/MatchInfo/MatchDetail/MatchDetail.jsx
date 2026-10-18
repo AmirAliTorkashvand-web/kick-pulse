@@ -17,7 +17,6 @@ import HomeSharedContent from "../../../Home/MainHomeContent/HomeDetail/HomeShar
 import MatchDetailItem from "./MatchDetailItem";
 
 export default function MatchDetail({ fixture }) {
-  console.log(fixture);
   return (
     <>
       <HomeSharedContent col={8} title="Match Info">

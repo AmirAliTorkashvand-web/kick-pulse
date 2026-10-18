@@ -16,7 +16,6 @@ export default function Matches() {
         const { yesterday, today, tomorrow } = getDateRange();
         const data = await getMatchesFixtures({ yesterday, today, tomorrow });
         setMatches(data);
-        console.log(data.today.filter((match) => match.league.id === 290));
       } catch (error) {
         console.log(error);
       }
@@ -30,7 +29,6 @@ export default function Matches() {
         const data = await getLeague({
           season: 2024,
         });
-        console.log(data);
       } catch (error) {
         console.log(error);
       }

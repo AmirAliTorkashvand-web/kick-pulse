@@ -31,8 +31,6 @@ export default function TeamInfo({ teamDetail }) {
 
   const teamId = teamDetail?.[0]?.team?.id;
 
-  console.log(teamDetail)
-
   useFetchFixture({
     teamId,
     setFixtures,
@@ -62,10 +60,7 @@ export default function TeamInfo({ teamDetail }) {
     setPlayers: setPlayers,
   });
 
-  console.log(players)
-
   if (!teamDetail?.length) return null;
-  console.log("Active tab:", active);
 
   return (
     <>
