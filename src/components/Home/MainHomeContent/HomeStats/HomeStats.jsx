@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import {
   CalendarIcon,
   LiveMatchesIcon,
@@ -55,21 +56,23 @@ export default function HomeStats({ matches }) {
         title="Top Matches"
       />
 
-      <HomeStatsItem
-        color="text-purple"
-        bgColor="bg-purple/10"
-        Icon={TopScorerIcon}
-        value={
-          <div className="flex items-center gap-1">
-            <span>{truncateTeamName(biggestWin?.teams?.home?.name , 7)}</span>
-            <span>{biggestWin?.goals?.home}</span>
-            <span>-</span>
-            <span>{biggestWin?.goals?.away}</span>
-            <span>{truncateTeamName(biggestWin?.teams?.away?.name , 7)}</span>
-          </div>
-        }
-        title="Biggest win"
-      />
+      <Link to={`/matches/${biggestWin?.fixture?.id}`} className="col-span-2">
+        <HomeStatsItem
+          color="text-purple"
+          bgColor="bg-purple/10"
+          Icon={TopScorerIcon}
+          value={
+            <div className="flex items-center gap-1">
+              <span>{truncateTeamName(biggestWin?.teams?.home?.name, 7)}</span>
+              <span>{biggestWin?.goals?.home}</span>
+              <span>-</span>
+              <span>{biggestWin?.goals?.away}</span>
+              <span>{truncateTeamName(biggestWin?.teams?.away?.name, 7)}</span>
+            </div>
+          }
+          title="Biggest win"
+        />
+      </Link>
     </>
   );
 }

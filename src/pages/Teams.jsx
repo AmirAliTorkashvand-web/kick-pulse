@@ -4,7 +4,7 @@ import TeamsSharedContainer from "../components/Teams/TeamsSharedContainer";
 
 export default function Teams() {
   const [leagues, setLeagues] = useState([]);
-  // fetchLeague(setLeagues);
+  fetchLeague(setLeagues);
 
   return (
     <>

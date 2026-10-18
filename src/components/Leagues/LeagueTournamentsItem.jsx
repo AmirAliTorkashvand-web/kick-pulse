@@ -1,7 +1,9 @@
-export default function LeagueTournamentsItem({ league, onClick }) {
+import { Link } from "react-router-dom";
+
+export default function LeagueTournamentsItem({ league }) {
   return (
     <>
-      <div onClick={onClick}>
+      <Link to={`/leagues/${league.league.id}`}>
         <div className="group flex items-center gap-4 px-4 py-4 transition-colors hover:bg-surface-light/60">
           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-surface">
             <img
@@ -16,7 +18,7 @@ export default function LeagueTournamentsItem({ league, onClick }) {
             </h3>
           </div>
         </div>
-      </div>
+      </Link>
     </>
   );
 }

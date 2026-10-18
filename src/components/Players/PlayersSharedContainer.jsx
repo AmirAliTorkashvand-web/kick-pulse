@@ -11,6 +11,7 @@ import {
   getTeams,
 } from "../../services/Players/TeamPlayersService";
 import PlayerInfo from "./PlayerInfo/PlayerInfo";
+import { useParams } from "react-router-dom";
 
 export default function PlayersSharedContainer({ leagues }) {
   const [selectedIds, setSelectedIds] = useState({
@@ -22,9 +23,10 @@ export default function PlayersSharedContainer({ leagues }) {
   const [teams, setTeams] = useState([]);
   const [player, setPlayer] = useState([]);
   const [playerDetail, setPlayerDetail] = useState([]);
+  const { playerLinkId } = useParams();
 
   //League
-  const sortedLeagues = [...leagues].sort(
+  const sortedLeagues = [...(leagues ?? [])].sort(
     (a, b) => getLeagueScore(b) - getLeagueScore(a),
   );
   const mappedLeague = sortedLeagues.map((league) => mapLeague(league));
@@ -67,18 +69,25 @@ export default function PlayersSharedContainer({ leagues }) {
   //Player detail
 
   useEffect(() => {
-    if (!selectedIds.playerId) return;
+    const id = playerLinkId ?? selectedIds.playerId;
+
+    if (!id) return;
 
     const fetchPlayerDetail = async () => {
-      const data = await getPlayers({
-        season: 2024,
-        id: selectedIds.playerId,
-      });
-      setPlayerDetail(data.data.response);
+      try {
+        const data = await getPlayers({
+          season: 2024,
+          id,
+        });
+
+        setPlayerDetail(data.data.response);
+      } catch (error) {
+        console.error("Failed to fetch player details:", error);
+      }
     };
 
     fetchPlayerDetail();
-  }, [selectedIds.playerId]);
+  }, [playerLinkId, selectedIds.playerId]);
 
   const handleSelect = (id) => {
     if (step === "league") {
@@ -140,7 +149,9 @@ export default function PlayersSharedContainer({ leagues }) {
         </div>
       )}
 
-      {step === "playerDetail" && <PlayerInfo playerDetail={playerDetail} />}
+      {(step === "playerDetail" || playerLinkId) && (
+        <PlayerInfo playerDetail={playerDetail} />
+      )}
     </>
   );
 }

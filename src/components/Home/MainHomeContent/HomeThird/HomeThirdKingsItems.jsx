@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function HomeThirdKingsItems({ king }) {
   return (
     <article className="group relative flex h-full min-h-[230px] w-full flex-col overflow-hidden rounded-2xl border border-border bg-surface p-5 transition-all duration-300 hover:border-brand/40">
@@ -13,7 +15,7 @@ export default function HomeThirdKingsItems({ king }) {
         </div>
       </div>
 
-      <div className="relative flex min-h-0 flex-1 items-center justify-center py-6">
+      <Link to={`/teams/${king.id}/${king.leagueId}`} className="relative flex min-h-0 flex-1 items-center justify-center py-6">
         <div className="flex h-[76px] w-[76px] shrink-0 items-center justify-center rounded-xl border border-border bg-bg-secondary p-3 shadow-lg transition-transform duration-300 group-hover:scale-105">
           <img
             src={king.teamLogo}
@@ -21,7 +23,7 @@ export default function HomeThirdKingsItems({ king }) {
             className="h-full w-full object-contain"
           />
         </div>
-      </div>
+      </Link>
 
       <div className="relative mt-auto border-t border-border pt-3">
         <div className="flex items-center justify-between gap-4">

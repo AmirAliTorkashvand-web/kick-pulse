@@ -73,6 +73,7 @@ export function getEventMeta({ event }) {
     iconColor: null,
     player: event.player?.name ?? null,
     secondaryText: event.assist?.name ?? null,
+    playerId: event?.player?.id,
   };
 
   switch (event.type) {

@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { teamRank } from "../../../../utils/LeagueUtils/LeagueUtils";
 
 export default function LeagueTableRow({
@@ -13,11 +14,17 @@ export default function LeagueTableRow({
   diff,
   form,
   total,
+  leagueId,
+  teamId,
 }) {
-  const positionColor = teamRank(position , total);
+  const positionColor = teamRank(position, total);
+  const navigate = useNavigate();
 
   return (
-    <tr className="border-b border-border transition-colors last:border-0 hover:bg-surface-hover/50">
+    <tr
+      onClick={() => navigate(`/teams/${teamId}/${leagueId}`)}
+      className="cursor-pointer border-b border-border transition-colors last:border-0 hover:bg-surface-hover/50"
+    >
       <td className="px-3 py-3">
         <span
           className="flex h-7 w-7 items-center justify-center rounded-md text-xs font-bold text-black"

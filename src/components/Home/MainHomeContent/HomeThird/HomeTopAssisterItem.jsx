@@ -4,7 +4,7 @@ export default function HomeTopAssiterItem({ topAssister, index }) {
       className="
         flex
         h-full
-        min-h-0
+        min-h-[80px]
         min-w-0
         w-full
         items-center

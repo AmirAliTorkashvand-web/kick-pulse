@@ -4,6 +4,7 @@ import { mapLeague, mapTeam } from "../../utils/PlayersUtils/PlayersUtils";
 import { getTeams } from "../../services/Players/TeamPlayersService";
 import PlayersSharedItem from "../Players/PlayersSharedItem";
 import TeamInfo from "./TeamInfo/TeamInfo";
+import { useParams } from "react-router-dom";
 
 export default function TeamsSharedContainer({ leagues }) {
   const [selectedIds, setSelectedIds] = useState({
@@ -13,9 +14,10 @@ export default function TeamsSharedContainer({ leagues }) {
   const [step, setStep] = useState("league");
   const [teams, setTeams] = useState([]);
   const [teamDetail, setTeamDetail] = useState([]);
+  const { teamId, leagueId } = useParams();
 
   //League
-  const sortedLeagues = [...leagues].sort(
+  const sortedLeagues = [...(leagues ?? [])].sort(
     (a, b) => getLeagueScore(b) - getLeagueScore(a),
   );
   const mappedLeague = sortedLeagues.map((league) => mapLeague(league));
@@ -27,7 +29,7 @@ export default function TeamsSharedContainer({ leagues }) {
     const fetchTeams = async () => {
       const data = await getTeams({
         season: 2024,
-        league: selectedIds.leagueId,
+        league: selectedIds.leagueId ?? leagueId,
       });
       setTeams(data.data.response);
     };
@@ -40,20 +42,28 @@ export default function TeamsSharedContainer({ leagues }) {
   // Team detail
 
   useEffect(() => {
-    if (!selectedIds.teamId) return;
-    const fetchTeam = async () => {
-      const response = await getTeams({
-        season: 2024,
-        league: selectedIds.leagueId,
-        id: selectedIds.teamId,
-      });
+    const id = teamId ?? selectedIds.teamId;
+    const activeLeagueId = selectedIds.leagueId ?? leagueId;
 
-      console.log(response);
-      setTeamDetail(response.data.response);
+    if (!id) return;
+
+    const fetchTeam = async () => {
+      try {
+        const response = await getTeams({
+          season: 2024,
+          league: activeLeagueId,
+          id,
+        });
+
+        setTeamDetail(response.data.response ?? []);
+        console.log("Team response:", response.data.response);
+      } catch (err) {
+        console.error("Failed to fetch team details:", err);
+      }
     };
 
     fetchTeam();
-  }, [selectedIds.teamId]);
+  }, [teamId, leagueId, selectedIds.teamId, selectedIds.leagueId]);
 
   const handleSelect = (id) => {
     if (step === "league") {
@@ -95,7 +105,12 @@ export default function TeamsSharedContainer({ leagues }) {
             />
           ))}
       </div>
-      {step === "teamDetail" && <TeamInfo teamDetail={teamDetail} />}
+      {(step === "teamDetail" || teamId) && (
+        <>
+          {console.log(teamDetail)}
+          <TeamInfo teamDetail={teamDetail} />
+        </>
+      )}
     </>
   );
 }

@@ -1,4 +1,5 @@
 import LeagueBestPlayersRow from "./LeagueBestPlayersRow";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function LeagueBestPlayersTable({ Player, category, col }) {
   function categoryFinder(category) {
@@ -52,15 +53,18 @@ export default function LeagueBestPlayersTable({ Player, category, col }) {
 
         <tbody>
           {sortedPlayers.map((playerData, index) => (
-            <LeagueBestPlayersRow
-              key={playerData.player.id}
-              name={playerData.player.name}
-              position={index + 1}
-              scored={statsCategory(category, playerData)}
-              playerImg={playerData.player.photo}
-              team={playerData.statistics[0].team.name}
-              teamImg={playerData.statistics[0].team.logo}
-            />
+            <>
+              <LeagueBestPlayersRow
+                key={playerData.player.id}
+                name={playerData.player.name}
+                position={index + 1}
+                scored={statsCategory(category, playerData)}
+                playerImg={playerData.player.photo}
+                team={playerData.statistics[0].team.name}
+                teamImg={playerData.statistics[0].team.logo}
+                playerId={playerData.player.id}
+              />
+            </>
           ))}
         </tbody>
       </table>

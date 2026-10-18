@@ -6,35 +6,16 @@ import Home from "./pages/Home";
 
 import Matches from "./pages/Matches";
 
-import Leagues from "./pages/Leagues";
-
 import Players from "./pages/Players";
 
 import Teams from "./pages/Teams";
-import MatchInfo from "./components/Matches/MatchInfo/MatchInfo";
-import {
-  getFixtures,
-  getHomeFixtures,
-} from "./services/Home/MatchFixtureService";
-import { getFeaturedMatches } from "./utils/HomeUtils/HomeUtils";
-import { useEffect, useState } from "react";
+import MainMatches from "./components/Matches/MainMatches";
+import LeaguesContainer from "./components/Leagues/LeaguesContainer.";
+import LeagueDetailPage from "./components/Leagues/LeagueDetialPage";
+import PlayersSharedContainer from "./components/Players/PlayersSharedContainer";
+import TeamsSharedContainer from "./components/Teams/TeamsSharedContainer";
 
 function App() {
-  // const [fixture, setFixture] = useState([]);
-
-  // useEffect(() => {
-  //   const fetchFixture = async () => {
-  //     const data = await getFixtures({
-  //       id: 1528928,
-  //     });
-
-  //     setFixture(data);
-  //     console.log(data);
-  //   };
-
-  //   fetchFixture();
-  // }, []);
-
   const router = createBrowserRouter([
     {
       path: "/",
@@ -46,24 +27,57 @@ function App() {
         },
         {
           path: "matches",
-          element: <Matches />,
+          children: [
+            {
+              index: true,
+              element: <Matches />,
+            },
+            {
+              path: ":matchId",
+              element: <MainMatches />,
+            },
+          ],
         },
         {
           path: "leagues",
-          element: <Leagues />,
+          element: <LeagueDetailPage />,
+          children: [
+            {
+              index: true,
+              element: <LeaguesContainer />,
+            },
+            {
+              path: ":leagueId",
+              element: <LeaguesContainer />,
+            },
+          ],
         },
         {
           path: "players",
-          element: <Players />,
+          children: [
+            {
+              index: true,
+              element: <Players />,
+            },
+            {
+              path: ":playerLinkId",
+              element: <PlayersSharedContainer />,
+            },
+          ],
         },
         {
           path: "teams",
-          element: <Teams />,
+          children: [
+            {
+              index: true,
+              element: <Teams />,
+            },
+            {
+              path: ":teamId/:leagueId",
+              element: <TeamsSharedContainer />,
+            },
+          ],
         },
-        // {
-        //   path: "transfers",
-        //   element: <MatchInfo fixtureData={fixture} />,
-        // },
       ],
     },
   ]);

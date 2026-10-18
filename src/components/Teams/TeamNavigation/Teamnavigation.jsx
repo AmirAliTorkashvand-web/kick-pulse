@@ -12,7 +12,7 @@ export default function TeamNavigation({
   first,
   second,
   third,
-  fourth = true,
+  fourth,
   fourthTitle,
 }) {
   return (

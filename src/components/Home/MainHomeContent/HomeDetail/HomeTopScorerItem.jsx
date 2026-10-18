@@ -3,7 +3,7 @@ export default function HomeTopScorerItem({ matches, index }) {
     <article
       className="
         flex
-        min-h-0
+        min-h-[80px]
         min-w-0
         h-full
         w-full

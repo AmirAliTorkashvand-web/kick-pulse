@@ -24,142 +24,139 @@ export default function Home() {
   const [standing, setStanding] = useState([]);
   const [selectedTransferTeam, setSelectedTransferTeam] = useState(null);
 
-  // useEffect(() => {
-  //   const fetchHomeFixtures = async () => {
-  //     try {
-  //       const { today, yesterday } = getDateRange();
+  useEffect(() => {
+    const fetchHomeFixtures = async () => {
+      try {
+        const { today, yesterday } = getDateRange();
 
-  //       const data = await getHomeFixtures({
-  //         today,
-  //         yesterday,
-  //       });
+        const data = await getHomeFixtures({
+          today,
+          yesterday,
+        });
 
-  //       setMatches(data);
+        setMatches(data);
 
-  //       const featuredMatches = getFeaturedMatches(data);
+        const featuredMatches = getFeaturedMatches(data);
 
-  //       setFixtures(featuredMatches);
-  //     } catch (error) {
-  //       console.log("Error fetching home fixtures:", error);
-  //     }
-  //   };
-  //   fetchHomeFixtures();
-  // }, []);
+        setFixtures(featuredMatches);
+      } catch (error) {
+        console.log("Error fetching home fixtures:", error);
+      }
+    };
+    fetchHomeFixtures();
+  }, []);
 
-  // useEffect(() => {
-  //   const fetchTopScorers = async () => {
-  //     try {
-  //       const data = await getTopScorers({
-  //         league: 2,
-  //         season: 2024,
-  //       });
+  useEffect(() => {
+    const fetchTopScorers = async () => {
+      try {
+        const data = await getTopScorers({
+          league: 2,
+          season: 2024,
+        });
 
-  //       const excludedPlayers = [135545];
+        const excludedPlayers = [135545];
 
-  //       const topFor = data.response
-  //         .filter((item) => !excludedPlayers.includes(item.player.id))
-  //         .slice(0, 4);
+        const topFor = data.response
+          .filter((item) => !excludedPlayers.includes(item.player.id))
+          .slice(0, 4);
 
-  //       setTopScorer(topFor);
+        setTopScorer(topFor);
+      } catch (error) {
+        console.log("Error fetching top scorers:", error);
+      }
+    };
 
-  //     } catch (error) {
-  //       console.log("Error fetching top scorers:", error);
-  //     }
-  //   };
+    fetchTopScorers();
+  }, []);
 
-  //   fetchTopScorers();
-  // }, []);
+  useEffect(() => {
+    const fetchTransfers = async () => {
+      try {
+        const teamIds = Object.keys(teamPriority).map(Number);
 
-  // useEffect(() => {
-  //   const fetchTransfers = async () => {
-  //     try {
-  //       const teamIds = Object.keys(teamPriority).map(Number);
+        const randomTeamId =
+          teamIds[Math.floor(Math.random() * teamIds.length)];
 
-  //       const randomTeamId =
-  //         teamIds[Math.floor(Math.random() * teamIds.length)];
+        const randomTeam = {
+          id: randomTeamId,
+          logo: `https://media.api-sports.io/football/teams/${randomTeamId}.png`,
+        };
 
-  //       const randomTeam = {
-  //         id: randomTeamId,
-  //         logo: `https://media.api-sports.io/football/teams/${randomTeamId}.png`,
-  //       };
+        setSelectedTransferTeam(randomTeam);
 
-  //       setSelectedTransferTeam(randomTeam);
+        const data = await getTransfers({
+          team: randomTeamId,
+        });
 
-  //       const data = await getTransfers({
-  //         team: randomTeamId,
-  //       });
+        const allTransfers = data.response.flatMap((item) =>
+          item.transfers.map((transfer) => ({
+            player: item.player,
+            ...transfer,
+          })),
+        );
 
-  //       const allTransfers = data.response.flatMap((item) =>
-  //         item.transfers.map((transfer) => ({
-  //           player: item.player,
-  //           ...transfer,
-  //         })),
-  //       );
+        const latestTransfers = allTransfers
+          .filter((transfer) => transfer.date)
+          .sort(
+            (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+          )
+          .slice(0, 4);
 
-  //       const latestTransfers = allTransfers
-  //         .filter((transfer) => transfer.date)
-  //         .sort(
-  //           (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
-  //         )
-  //         .slice(0, 4);
+        setTransfers(latestTransfers);
+      } catch (error) {
+        console.log("Error fetching transfers:", error);
+      }
+    };
 
-  //       setTransfers(latestTransfers);
+    fetchTransfers();
+  }, []);
 
-  //     } catch (error) {
-  //       console.log("Error fetching transfers:", error);
-  //     }
-  //   };
+  useEffect(() => {
+    const fetchTopAssiter = async () => {
+      try {
+        const data = await getTopAssiters({
+          league: 2,
+          season: 2024,
+        });
 
-  //   fetchTransfers();
-  // }, []);
+        const topFour = data.response.slice(0, 4);
 
-  // useEffect(() => {
-  //   const fetchTopAssiter = async () => {
-  //     try {
-  //       const data = await getTopAssiters({
-  //         league: 2,
-  //         season: 2024,
-  //       });
+        setTopAssiter(topFour);
+      } catch (error) {
+        console.log("Error fetching top scorers:", error);
+      }
+    };
 
-  //       const topFour = data.response.slice(0, 4);
+    fetchTopAssiter();
+  }, []);
 
-  //       setTopAssiter(topFour);
+  useEffect(() => {
+    const fetchStanding = async () => {
+      try {
+        const leagues = [
+          39, // Premier League
+          140, // La Liga
+          135, // Serie A
+          78, // Bundesliga
+          61, // Ligue 1
+        ];
 
-  //     } catch (error) {
-  //       console.log("Error fetching top scorers:", error);
-  //     }
-  //   };
+        const randomLeagueId =
+          leagues[Math.floor(Math.random() * leagues.length)];
 
-  //   fetchTopAssiter();
-  // }, []);
+        const data = await getStandings({
+          league: randomLeagueId,
+          season: 2024,
+        });
 
-  // useEffect(() => {
-  //   const fetchStanding = async () => {
-  //     try {
-  //       const leagues = [
-  //         39, // Premier League
-  //         140, // La Liga
-  //         135, // Serie A
-  //         78, // Bundesliga
-  //         61, // Ligue 1
-  //       ];
+        setStanding(data);
+      } catch (error) {
+        console.log("Error fetching standings:", error);
+      }
+    };
 
-  //       const randomLeagueId =
-  //         leagues[Math.floor(Math.random() * leagues.length)];
-
-  //       const data = await getStandings({
-  //         league: randomLeagueId,
-  //         season: 2024,
-  //       });
-
-  //       setStanding(data);
-  //     } catch (error) {
-  //       console.log("Error fetching standings:", error);
-  //     }
-  //   };
-
-  //   fetchStanding();
-  // }, []);
+    fetchStanding();
+  }, []);
 
   return (
     <>

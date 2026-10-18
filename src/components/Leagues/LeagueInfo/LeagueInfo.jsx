@@ -10,6 +10,7 @@ import {
 } from "../../../utils/LeagueUtils/LeagueUtils";
 import MatchesLeagueMatchItem from "../../Matches/Matches/MatchleagueMatchItem";
 import LeagueBestPlayers from "./LeagueBestPlayers/LeagueBestPlayers";
+import { Link } from "react-router-dom";
 
 export default function LeagueInfo({ league, leagueId }) {
   const [step, setStep] = useState("standing");
@@ -39,7 +40,9 @@ export default function LeagueInfo({ league, leagueId }) {
       {step === "fixtures" && (
         <div className="flex flex-col mt-4 gap-2">
           {fixture.map((match) => (
-            <MatchesLeagueMatchItem key={match.fixture.id} match={match} />
+            <Link to={`/matches/${match.fixture.id}`}>
+              <MatchesLeagueMatchItem key={match.fixture.id} match={match} />
+            </Link>
           ))}
         </div>
       )}

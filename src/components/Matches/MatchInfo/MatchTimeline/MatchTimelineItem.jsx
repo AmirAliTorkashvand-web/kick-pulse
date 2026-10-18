@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function MatchTimelineItem({
   Icon,
   iconColor,
@@ -5,6 +7,7 @@ export default function MatchTimelineItem({
   player,
   secondaryText,
   minute,
+  playerId,
 }) {
   const isHome = side === "home";
 
@@ -14,7 +17,9 @@ export default function MatchTimelineItem({
         {isHome && (
           <>
             <div className="text-right">
-              <p className="text-sm font-semibold text-white">{player}</p>
+              <Link to={`/players/${playerId}`}>
+                <p className="text-sm font-semibold text-white">{player}</p>
+              </Link>
 
               {secondaryText && (
                 <p className="text-xs text-gray-400">{secondaryText}</p>
@@ -38,7 +43,9 @@ export default function MatchTimelineItem({
             {Icon && <Icon color={iconColor} />}
 
             <div className="text-left">
-              <p className="text-sm font-semibold text-white">{player}</p>
+              <Link to={`/players/${playerId}`}>
+                <p className="text-sm font-semibold text-white">{player}</p>
+              </Link>
 
               {secondaryText && (
                 <p className="text-xs text-gray-400">{secondaryText}</p>

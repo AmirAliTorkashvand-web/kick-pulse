@@ -1,5 +1,6 @@
 import { getMatchTime } from "../../../utils/HomeUtils/HomeUtils";
 import { hasLeagueBackground } from "./LeagueBackGround";
+import { Link } from "react-router-dom";
 
 function MatchFixtureItem({ background, match }) {
   const hasBackground = hasLeagueBackground(match?.league?.id);
@@ -27,12 +28,13 @@ function MatchFixtureItem({ background, match }) {
         )}
         <div className="flex items-center justify-center gap-4">
           <div className="flex w-28 min-w-0 flex-col items-center gap-3">
-            <img
-              src={match.teams.home.logo}
-              alt=""
-              className="h-16 w-16 shrink-0 object-contain"
-            />
-
+            <Link to={`/teams/${match?.teams?.home?.id}/${match?.league?.id}`}>
+              <img
+                src={match.teams.home.logo}
+                alt=""
+                className="h-16 w-16 shrink-0 object-contain"
+              />
+            </Link>
             <span className="w-full truncate text-center text-base font-bold text-white">
               {match.teams.home.name}
             </span>
@@ -49,12 +51,13 @@ function MatchFixtureItem({ background, match }) {
           </div>
 
           <div className="flex w-28 min-w-0 flex-col items-center gap-3">
-            <img
-              src={match.teams.away.logo}
-              alt=""
-              className="h-16 w-16 shrink-0 object-contain"
-            />
-
+            <Link to={`/teams/${match?.teams?.away?.id}/${match?.league?.id}`}>
+              <img
+                src={match.teams.away.logo}
+                alt=""
+                className="h-16 w-16 shrink-0 object-contain"
+              />
+            </Link>
             <span className="w-full truncate text-center text-base font-bold text-white">
               {match.teams.away.name}
             </span>

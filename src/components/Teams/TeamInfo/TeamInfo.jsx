@@ -5,6 +5,7 @@ import TeamDetailShared from "../TeamDetail/TeamDetailShared";
 import TeamDetailRecentForm from "../TeamDetail/TeamDetailRecentForm";
 import TeamInformation from "../TeamInformation/TeamInformation";
 import TeamStadium from "../TeamStadium/TeamStadium";
+import { Link } from "react-router-dom";
 
 import {
   useFetchFixture,
@@ -26,9 +27,11 @@ export default function TeamInfo({ teamDetail }) {
   const [stats, setStats] = useState([]);
   const [players, setPlayers] = useState([]);
   const [leagueId, setLeagueId] = useState(null);
-  const [active, setActive] = useState("overview");
+  const [active, setActive] = useState("Overview");
 
   const teamId = teamDetail?.[0]?.team?.id;
+
+  console.log(teamDetail)
 
   useFetchFixture({
     teamId,
@@ -59,13 +62,24 @@ export default function TeamInfo({ teamDetail }) {
     setPlayers: setPlayers,
   });
 
+  console.log(players)
+
   if (!teamDetail?.length) return null;
+  console.log("Active tab:", active);
 
   return (
     <>
       <TeamInfoFixture team={teamDetail} />
 
-      <TeamNavigation setActive={setActive} active={active} first="Overview" second="Fixture" third="Team stats" fourthTitle="Squad"/>
+      <TeamNavigation
+        setActive={setActive}
+        active={active}
+        first="Overview"
+        second="Fixture"
+        third="Team stats"
+        fourth="Squad"
+        fourthTitle="Squad"
+      />
 
       {active === "Overview" && (
         <>
@@ -91,11 +105,18 @@ export default function TeamInfo({ teamDetail }) {
         </>
       )}
 
-      {active === "Fixtures" && (
+      {active === "Fixture" && (
         <>
-          {fixtures?.response?.map((fixture) => (
-            <MatchesLeagueMatchItem key={fixture.fixture.id} match={fixture} />
-          ))}
+          <div className="mt-4">
+            {fixtures?.response?.map((fixture) => (
+              <Link to={`/matches/${fixture.fixture.id}`}>
+                <MatchesLeagueMatchItem
+                  key={fixture.fixture.id}
+                  match={fixture}
+                />
+              </Link>
+            ))}
+          </div>
         </>
       )}
 

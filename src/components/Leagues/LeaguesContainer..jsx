@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import {
   fetchLeagueStanding,
@@ -11,17 +11,15 @@ import MatchesLeagueItem from "../Matches/Matches/MatchesleagueItem";
 import LeagueTournamentsItem from "./LeagueTournamentsItem";
 
 import LeagueInfo from "./LeagueInfo/LeagueInfo";
+import { useOutletContext, useParams } from "react-router-dom";
 
-export default function LeaguesContainer({ league }) {
-  const [step, setStep] = useState("allLeagues");
+export default function LeaguesContainer() {
   const [standing, setStanding] = useState([]);
+  const { leagueId } = useParams();
+  const { leagues } = useOutletContext();
 
-  const [selectedIds, setSelectedIds] = useState({
-    leagueId: null,
-  });
-
-  const leagues = groupBy(
-    league,
+  const leaguesData = groupBy(
+    leagues,
     (tournament) => tournament.country.name,
     (tournament) => ({
       country: tournament.country,
@@ -38,27 +36,28 @@ export default function LeaguesContainer({ league }) {
     },
   );
 
-  const sortedLeagues = Object.values(leagues).sort(
+  const sortedLeagues = Object.values(leaguesData).sort(
     (a, b) => b.score - a.score,
   );
 
-  const handleSelect = (id) => {
-    console.log("HANDLE SELECT:", id);
+  useEffect(() => {
+    if (!leagueId) return;
 
-    if (step === "allLeagues") {
-      setSelectedIds({
-        leagueId: id,
-      });
-
-      setStep("league");
+    async function loadStanding() {
+      try {
+        const data = await fetchLeagueStanding(leagueId);
+        setStanding(data);
+      } catch (err) {
+        console.error("Failed to fetch league standings:", err);
+      }
     }
-  };
 
-  fetchLeagueStanding(setStanding, selectedIds.leagueId);
+    loadStanding();
+  }, [leagueId]);
 
   return (
     <>
-      {step === "allLeagues" && (
+      {!leagueId && (
         <div className="col-span-8 flex flex-col gap-4">
           {sortedLeagues.map(({ country, leagues }) => (
             <MatchesLeagueItem
@@ -67,20 +66,14 @@ export default function LeaguesContainer({ league }) {
               defaultOpen={false}
             >
               {leagues.map((league) => (
-                <LeagueTournamentsItem
-                  key={league.id}
-                  league={league}
-                  onClick={() => handleSelect(league.league.id)}
-                />
+                <LeagueTournamentsItem key={league.id} league={league} />
               ))}
             </MatchesLeagueItem>
           ))}
         </div>
       )}
 
-      {step === "league" && (
-        <LeagueInfo league={standing} leagueId={selectedIds.leagueId} />
-      )}
+      {leagueId && <LeagueInfo league={standing} leagueId={leagueId} />}
     </>
   );
 }

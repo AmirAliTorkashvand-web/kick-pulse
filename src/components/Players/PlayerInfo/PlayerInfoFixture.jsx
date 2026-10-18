@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import playerBg from "../../../assets/images/image.png";
 import {
   playerAppearences,
@@ -15,6 +16,8 @@ export default function PlayerInfoFixture({ player }) {
     player[0].statistics,
     player[0].player.nationality,
   );
+
+  console.log(player);
 
   return (
     <div
@@ -55,18 +58,27 @@ export default function PlayerInfoFixture({ player }) {
           </div>
 
           <div className="flex items-center gap-4">
-            <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-white p-1.5">
-              <img
-                src={playerTeam.logo}
-                alt=""
-                className="h-full w-full object-contain"
-              />
-            </div>
+            <Link
+              to={`/teams/${playerTeam?.id}/${player[0]?.statistics[0]?.league?.id}`}
+            >
+              <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-white p-1.5">
+                <img
+                  src={playerTeam.logo}
+                  alt=""
+                  className="h-full w-full object-contain"
+                />
+              </div>
+            </Link>
 
             <div className="flex flex-col gap-1">
-              <span className="text-sm font-semibold text-[#f5f7fa]">
-                {playerTeam.name}
-              </span>
+              <Link
+                to={`/teams/${playerTeam?.id}/${player[0]?.statistics[0]?.league?.id}`}
+              >
+
+                <span className="text-sm font-semibold text-[#f5f7fa]">
+                  {playerTeam.name}
+                </span>
+              </Link>
 
               <span className="text-[11px] text-[#a8b3bf]">
                 {latestStatistics.games.position}
@@ -123,7 +135,11 @@ export default function PlayerInfoFixture({ player }) {
               </span>
 
               <span className="mt-1 block text-base font-bold text-[#f5f7fa]">
-                {playerAppearences(player[0].statistics, "appearences" , "games")}
+                {playerAppearences(
+                  player[0].statistics,
+                  "appearences",
+                  "games",
+                )}
               </span>
             </div>
 
@@ -131,7 +147,7 @@ export default function PlayerInfoFixture({ player }) {
               <span className="block text-[9px] text-[#667585]">Minutes</span>
 
               <span className="mt-1 block text-base font-bold text-[#f5f7fa]">
-                {playerAppearences(player[0].statistics, "minutes" , "games")}
+                {playerAppearences(player[0].statistics, "minutes", "games")}
               </span>
             </div>
           </div>

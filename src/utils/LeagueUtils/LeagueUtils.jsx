@@ -8,24 +8,18 @@ import {
 } from "../../services/Home/MatchContentServices";
 import { getFixtures } from "../../services/Home/MatchFixtureService";
 
-export function fetchLeagueStanding(setStanding, leagueId) {
-  useEffect(() => {
-    if (!leagueId) return;
+export async function fetchLeagueStanding(leagueId) {
+  console.log("leagueId:", leagueId);
 
-    const fetchLeagueStanding = async () => {
-      try {
-        const response = await getStandings({
-          season: 2024,
-          league: leagueId,
-        });
-        setStanding(response.response);
-      } catch (err) {
-        console.log(err);
-      }
-    };
+  const response = await getStandings({
+    season: 2024,
+    league: leagueId,
+  });
 
-    fetchLeagueStanding();
-  }, [setStanding , leagueId]);
+  console.log("getStandings response:", response);
+  console.log("response.response:", response?.response);
+
+  return response?.response;
 }
 
 export function fetchLeague(setLeague, leagueId) {
@@ -45,7 +39,7 @@ export function fetchLeague(setLeague, leagueId) {
     };
 
     fetchLeague();
-  }, [setLeague , leagueId]);
+  }, [setLeague, leagueId]);
 }
 
 export function fetchLeagueFixture(setFixture, leagueId) {
@@ -66,7 +60,7 @@ export function fetchLeagueFixture(setFixture, leagueId) {
     };
 
     fetchLeagueFixture();
-  }, [setFixture , leagueId]);
+  }, [setFixture, leagueId]);
 }
 
 export function fetchLeagueTopScorers(setTopScorers, leagueId) {
@@ -86,7 +80,7 @@ export function fetchLeagueTopScorers(setTopScorers, leagueId) {
     };
 
     fetchLeagueTopScorers();
-  }, [setTopScorers , leagueId]);
+  }, [setTopScorers, leagueId]);
 }
 
 export function fetchLeagueTopAssisters(setTopAssisters, leagueId) {
@@ -106,7 +100,7 @@ export function fetchLeagueTopAssisters(setTopAssisters, leagueId) {
     };
 
     fetchLeagueTopAssisters();
-  }, [setTopAssisters , leagueId]);
+  }, [setTopAssisters, leagueId]);
 }
 
 export const getLeagueScore = (tournament) => {

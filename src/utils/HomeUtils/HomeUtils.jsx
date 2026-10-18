@@ -146,13 +146,24 @@ export function getMatchTime(match) {
 }
 
 export const getTopUpcomingMatches = (matches) => {
-  return matches
-    .filter(
-      (match) =>
-        match.fixture.status.short === "NS" && MatchPriority(match) > 1,
-    )
+  const upcoming = matches.filter(
+    (match) => match.fixture.status.short === "NS",
+  );
+
+  const topMatches = upcoming
+    .filter((match) => MatchPriority(match) > 1)
     .sort((a, b) => MatchPriority(b) - MatchPriority(a))
     .slice(0, 4);
+
+  if (topMatches.length < 4) {
+    const remaining = upcoming.filter((match) => !topMatches.includes(match));
+
+    const shuffled = [...remaining].sort(() => Math.random() - 0.5);
+
+    topMatches.push(...shuffled.slice(0, 4 - topMatches.length));
+  }
+
+  return topMatches;
 };
 
 export const getTopRecentResults = (matches) => {

@@ -1,5 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { Link } from "react-router-dom";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -31,10 +32,12 @@ function MatchFixture({ matches }) {
     >
       {matches.map((match) => (
         <SwiperSlide key={match.fixture.id}>
-          <MatchFixtureItem
-            match={match}
-            background={getLeagueBackground(match.league.id)}
-          />
+          <Link to={`/matches/${match.fixture.id}`}>
+            <MatchFixtureItem
+              match={match}
+              background={getLeagueBackground(match.league.id)}
+            />
+          </Link>
         </SwiperSlide>
       ))}
     </Swiper>

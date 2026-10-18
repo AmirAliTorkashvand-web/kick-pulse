@@ -5,6 +5,8 @@ export const currentKings = [
     teamLogo: "https://media.api-sports.io/football/teams/85.png",
     detail: "Champions League Winner",
     year: 2026,
+    id: 85,
+    leagueId: 61,
   },
   {
     title: "King of the clubs",
@@ -12,6 +14,8 @@ export const currentKings = [
     teamLogo: "https://media.api-sports.io/football/teams/49.png",
     detail: "Club World Cup Winner",
     year: 2025,
+    id: 49,
+    leagueId: 39,
   },
   {
     title: "King of Spain",
@@ -19,20 +23,26 @@ export const currentKings = [
     teamLogo: "https://media.api-sports.io/football/teams/529.png",
     detail: "La Liga Winner",
     year: 2026,
+    id: 529,
+    leagueId: 140,
   },
   {
     title: "King of England",
-    team: "Liverpool",
-    teamLogo: "https://media.api-sports.io/football/teams/40.png",
+    team: "Arsenal",
+    teamLogo: "https://media.api-sports.io/football/teams/42.png",
     detail: "Premier League Winner",
     year: 2026,
+    id: 42,
+    leagueId: 39,
   },
   {
     title: "King of Italy",
-    team: "Napoli",
-    teamLogo: "https://media.api-sports.io/football/teams/492.png",
+    team: "Inter Milan",
+    teamLogo: "https://media.api-sports.io/football/teams/505.png",
     detail: "Serie A Winner",
     year: 2026,
+    id: 505,
+    leagueId: 135,
   },
   {
     title: "King of Germany",
@@ -40,6 +50,8 @@ export const currentKings = [
     teamLogo: "https://media.api-sports.io/football/teams/157.png",
     detail: "Bundesliga Winner",
     year: 2026,
+    id: 157,
+    leagueId: 78,
   },
   {
     title: "King of France",
@@ -47,6 +59,8 @@ export const currentKings = [
     teamLogo: "https://media.api-sports.io/football/teams/85.png",
     detail: "Ligue 1 Winner",
     year: 2026,
+    id: 85,
+    leagueId: 61,
   },
   {
     title: "King of the world",
@@ -54,6 +68,8 @@ export const currentKings = [
     teamLogo: "https://media.api-sports.io/football/teams/9.png",
     detail: "World cup Winner",
     year: 2026,
+    id: 9,
+    leagueId: 1,
   },
 ];
 
@@ -64,6 +80,8 @@ export const historicalKings = [
     teamLogo: "https://media.api-sports.io/football/teams/541.png",
     detail: "Most Champions League Titles",
     year: 15,
+    id: 541,
+    leagueId: 140,
   },
   {
     title: "All-Time King of the clubs",
@@ -71,6 +89,8 @@ export const historicalKings = [
     teamLogo: "https://media.api-sports.io/football/teams/541.png",
     detail: "Most Club World Cup Titles",
     year: 6,
+    id: 541,
+    leagueId: 140,
   },
   {
     title: "All-Time King of Spain",
@@ -78,6 +98,8 @@ export const historicalKings = [
     teamLogo: "https://media.api-sports.io/football/teams/541.png",
     detail: "Most La Liga Titles",
     year: 36,
+    id: 541,
+    leagueId: 140,
   },
   {
     title: "All-Time King of England",
@@ -85,6 +107,8 @@ export const historicalKings = [
     teamLogo: "https://media.api-sports.io/football/teams/33.png",
     detail: "Most Premier League Titles",
     year: 13,
+    id: 33,
+    leagueId: 39,
   },
   {
     title: "All-Time King of Italy",
@@ -92,6 +116,8 @@ export const historicalKings = [
     teamLogo: "https://media.api-sports.io/football/teams/496.png",
     detail: "Most Serie A Titles",
     year: 36,
+    id: 496,
+    leagueId: 135,
   },
   {
     title: "All-Time King of Germany",
@@ -99,6 +125,8 @@ export const historicalKings = [
     teamLogo: "https://media.api-sports.io/football/teams/157.png",
     detail: "Most Bundesliga Titles",
     year: 34,
+    id: 157,
+    leagueId: 78,
   },
   {
     title: "All-Time King of France",
@@ -106,6 +134,8 @@ export const historicalKings = [
     teamLogo: "https://media.api-sports.io/football/teams/85.png",
     detail: "Most Ligue 1 Titles",
     year: 13,
+    id: 85,
+    leagueId: 61,
   },
   {
     title: "All-Time King of the world",
@@ -113,5 +143,7 @@ export const historicalKings = [
     teamLogo: "https://media.api-sports.io/football/teams/6.png",
     detail: "Most World cup titles",
     year: 5,
+    id: 6,
+    leagueId: 1,
   },
 ];

@@ -4,6 +4,7 @@ import LeagueTableRow from "./LeagueTableRow";
 export default function LeagueTable({ league }) {
   if (!league.length) return null;
   const leagueStanding = league[0].league.standings[0];
+  const leagueId = league[0].league.id;
 
   return (
     <div className="overflow-hidden rounded-xl border border-border bg-surface-light col-span-5">
@@ -58,6 +59,8 @@ export default function LeagueTable({ league }) {
               form={teamForm(team.form)}
               points={team.points}
               total={leagueStanding.length}
+              leagueId={leagueId}
+              teamId={team.team.id}
             />
           ))}
         </tbody>

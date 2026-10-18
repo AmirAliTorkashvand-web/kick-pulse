@@ -2,46 +2,24 @@ import { useEffect, useState } from "react";
 import MatchFilters from "./MatchFilters/MatchFilters";
 import MatchDates from "./MatchDates/MatchDates";
 import MatchesLeague from "./Matches/MatchesLeague";
-import MatchStats from "./MatchInfo/MatchStats/MatchStats";
 import { getFixtures } from "../../services/Home/MatchFixtureService";
 import MatchInfo from "./MatchInfo/MatchInfo";
+import { useParams } from "react-router-dom";
 
 export default function ({ matches }) {
   const [activeFilters, setActiveFilters] = useState("all");
   const [activeDate, setActiveDate] = useState("today");
   const selectedMatches = matches?.[activeDate] ?? [];
-  const [step, setStep] = useState("allMatches");
-  const [selectedMatchId, setSelectedMatchId] = useState(null);
-  const [selectedIds, setSelectedIds] = useState({
-    matchId: null,
-  });
+  const { matchId } = useParams();
 
   const [fixture, setFixture] = useState([]);
 
-  const handleSelect = () => {
-    if (step === "allMatches") {
-      setSelectedIds({
-        ...selectedIds,
-        matchId: selectedMatchId,
-      });
-    }
-
-    setStep("match");
-  };
-
   useEffect(() => {
-    if (!selectedMatchId) return;
-    console.log(selectedMatchId);
-
-    handleSelect();
-  }, [selectedMatchId]);
-
-  useEffect(() => {
-    if (!selectedMatchId) return; 
+    if (!matchId) return;
 
     const fetchFixture = async () => {
       const data = await getFixtures({
-        id: selectedMatchId,
+        id: matchId,
       });
 
       setFixture(data);
@@ -49,11 +27,11 @@ export default function ({ matches }) {
     };
 
     fetchFixture();
-  }, [selectedMatchId]);
+  }, [matchId]);
 
   return (
     <>
-      {step === "allMatches" && (
+      {!matchId && (
         <div className="grid grid-cols-8 gap-4">
           <MatchFilters
             activeFilter={activeFilters}
@@ -63,12 +41,11 @@ export default function ({ matches }) {
           <MatchesLeague
             matches={selectedMatches}
             activeFilter={activeFilters}
-            setMatchId={setSelectedMatchId}
           />
         </div>
       )}
 
-      {step === "match" && (
+      {matchId && (
         <>
           <MatchInfo fixtureData={fixture} />
         </>

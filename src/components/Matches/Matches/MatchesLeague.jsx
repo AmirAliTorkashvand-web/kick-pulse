@@ -7,8 +7,9 @@ import {
 
 import MatchesLeagueItem from "./MatchesleagueItem";
 import MatchesLeagueMatchItem from "./MatchleagueMatchItem";
+import { Link } from "react-router-dom";
 
-export default function MatchesLeague({ matches, activeFilter, setMatchId }) {
+export default function MatchesLeague({ matches, activeFilter }) {
   const filteredMatches = filterMatches(matches, activeFilter);
 
   const leagues = groupBy(
@@ -46,9 +47,9 @@ export default function MatchesLeague({ matches, activeFilter, setMatchId }) {
       {sortedLeagues.map(({ league, matches }) => (
         <MatchesLeagueItem key={league.id} league={league} defaultOpen={true}>
           {matches.map((match) => (
-            <div onClick={() => setMatchId(match.fixture.id)}>
+            <Link to={`/matches/${match.fixture.id}`}>
               <MatchesLeagueMatchItem key={match.fixture.id} match={match} />
-            </div>
+            </Link>
           ))}
         </MatchesLeagueItem>
       ))}

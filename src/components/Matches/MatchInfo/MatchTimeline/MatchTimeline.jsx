@@ -18,6 +18,7 @@ export default function MatchTimeline({ fixtureData }) {
         <HomeSharedContent title="Events" col={8}>
           {eventsSide.map((item) => {
             const meta = getEventMeta({ event: item.event });
+            console.log(meta);
             return (
               <MatchTimelineItem
                 Icon={meta.Icon}
@@ -26,14 +27,13 @@ export default function MatchTimeline({ fixtureData }) {
                 player={meta.player}
                 secondaryText={meta.secondaryText}
                 minute={item.event.time.elapsed}
+                playerId={meta.playerId}
               />
             );
           })}
         </HomeSharedContent>
       )}
-      {!fixtureData.events && (
-        <span>Match has not started yet</span>
-      )}
+      {!fixtureData.events && <span>Match has not started yet</span>}
     </>
   );
 }

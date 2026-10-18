@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import HomeSharedContent from "../../../../components/Home/MainHomeContent/HomeDetail/HomeSharedContent";
 
 import { getPlayerMeta } from "../../../../utils/MatchesUtils/MatchUtils";
@@ -25,11 +26,13 @@ export default function MatchLineupsSubs({ fixture }) {
             <div className="col-span-4">
               <div className="grid grid-cols-2 gap-2">
                 {homeBench.map((player) => (
-                  <MatchLineupsSubsItem
-                    key={player.startXI.player.id}
-                    player={player}
-                    teamLogo={fixture.teams.home.logo}
-                  />
+                  <Link to={`/players/${player.startXI.player.id}`}>
+                    <MatchLineupsSubsItem
+                      key={player.startXI.player.id}
+                      player={player}
+                      teamLogo={fixture.teams.home.logo}
+                    />
+                  </Link>
                 ))}
               </div>
             </div>
@@ -37,11 +40,13 @@ export default function MatchLineupsSubs({ fixture }) {
             <div className="col-span-4">
               <div className="grid grid-cols-2 gap-2">
                 {awayBench.map((player) => (
-                  <MatchLineupsSubsItem
-                    key={player.startXI.player.id}
-                    player={player}
-                    teamLogo={fixture.teams.away.logo}
-                  />
+                  <Link to={`/players/${player.startXI.player.id}`}>
+                    <MatchLineupsSubsItem
+                      key={player.startXI.player.id}
+                      player={player}
+                      teamLogo={fixture.teams.away.logo}
+                    />
+                  </Link>
                 ))}
               </div>
             </div>

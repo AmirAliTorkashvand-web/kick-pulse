@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { gridToPitchPosition } from "../../../../utils/MatchesUtils/MatchUtils";
 import PlayerOnPitch from "./MatchLineupPlayer";
 export default function LineupTeam({ players = [], side = "home" }) {
@@ -19,12 +20,14 @@ export default function LineupTeam({ players = [], side = "home" }) {
         });
 
         return (
-          <PlayerOnPitch
-            key={player.startXI.player.id}
-            player={player.startXI.player.name}
-            photo={player.playerPhoto}
-            position={position}
-          />
+          <Link to={`/players/${player.startXI.player.id}`}>
+            <PlayerOnPitch
+              key={player.startXI.player.id}
+              player={player.startXI.player.name}
+              photo={player.playerPhoto}
+              position={position}
+            />
+          </Link>
         );
       })}
     </div>

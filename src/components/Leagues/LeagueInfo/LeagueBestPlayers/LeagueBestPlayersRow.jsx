@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 export default function LeagueBestPlayersRow({
   name,
   scored,
@@ -5,9 +7,14 @@ export default function LeagueBestPlayersRow({
   team,
   teamImg,
   position,
+  playerId
 }) {
+  const navigate = useNavigate();
   return (
-    <tr className="border-b border-border transition-colors last:border-0 hover:bg-surface-hover/50">
+    <tr
+      className="border-b border-border transition-colors last:border-0 hover:bg-surface-hover/50"
+      onClick={() => navigate(`/players/${playerId}`)}
+    >
       <td className="px-3 py-3">
         <span className="flex h-7 w-7 items-center justify-center rounded-md bg-brand text-xs font-bold text-black">
           {position}

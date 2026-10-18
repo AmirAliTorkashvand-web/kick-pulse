@@ -4,7 +4,7 @@ import { fetchLeague } from "../utils/PlayersUtils/PlayersUtils";
 
 export default function Players() {
   const [leagues, setLeagues] = useState([]);
-  // fetchLeague(setLeagues);
+  fetchLeague(setLeagues);
 
   return (
     <>

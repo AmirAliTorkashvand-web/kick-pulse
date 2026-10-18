@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import HomeSharedContent from "./HomeSharedContent";
 import HomeTransfersItem from "./HomeTransfersItem";
 
@@ -21,10 +22,12 @@ export default function HomeTransfers({ transfers, selectedTransferTeam }) {
       }
     >
       {transfers?.map((transfer, index) => (
-        <HomeTransfersItem
-          key={`${transfer.player.id}-${transfer.date}-${index}`}
-          transfer={transfer}
-        />
+        <Link to={`/players/${transfer.player.id}`}>
+          <HomeTransfersItem
+            key={`${transfer.player.id}-${transfer.date}-${index}`}
+            transfer={transfer}
+          />
+        </Link>
       ))}
     </HomeSharedContent>
   );
