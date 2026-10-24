@@ -5,8 +5,8 @@ import { historicalKings } from "../HomeThird/HomeKings";
 
 export default function HomeAllTimeKings() {
   return (
-    <div className="self-start min-h-0 w-full col-span-2">
-      <HomeSharedContent title="All Times Kings">
+    <div className="col-span-8 md:col-span-4 lg:col-span-2 min-w-0">
+      <HomeSharedContent title="All Time Kings">
         <HomeKingsSlider>
           {historicalKings.map((king) => (
             <HomeThirdKingsItems key={king.title} king={king} />

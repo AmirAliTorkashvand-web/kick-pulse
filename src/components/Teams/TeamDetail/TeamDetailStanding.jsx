@@ -20,30 +20,35 @@ export default function TeamDetailStanding({
   if (!teamStanding) return null;
 
   return (
-    <div className="rounded-2xl border border-border bg-surface p-6">
-      <div className="flex items-center rounded-xl border border-border bg-surface-light p-6">
-        <div className="flex min-w-32 flex-col">
-          <span className="text-4xl font-bold text-white">
-            #{teamStanding.rank}
-          </span>
+    <div className="rounded-2xl border border-border bg-surface p-3 sm:p-4 md:p-6">
+      <div className="overflow-x-auto md:overflow-visible">
+        <div className="flex min-w-[520px] items-center rounded-xl border border-border bg-surface-light p-4 md:min-w-0 md:p-6">
+          <div className="flex min-w-32 shrink-0 flex-col">
+            <span className="text-4xl font-bold text-white">
+              #{teamStanding.rank}
+            </span>
 
-          <span className="mt-1 text-lg font-bold text-brand">
-            {teamStanding.points} pts
-          </span>
-        </div>
+            <span className="mt-1 text-lg font-bold text-brand">
+              {teamStanding.points} pts
+            </span>
+          </div>
 
-        <div className="flex flex-1 justify-around">
-          <TeamDetailStandingItem
-            value={teamStanding.all.played}
-            label="Played"
-          />
-          <TeamDetailStandingItem value={teamStanding.all.win} label="Wins" />
-          <TeamDetailStandingItem value={teamStanding.all.draw} label="Draws" />
-          <TeamDetailStandingItem
-            value={teamStanding.all.lose}
-            label="Losses"
-          />
-          <TeamDetailStandingItem value={teamStanding.goalsDiff} label="GD" />
+          <div className="flex flex-1 justify-around">
+            <TeamDetailStandingItem
+              value={teamStanding.all.played}
+              label="Played"
+            />
+            <TeamDetailStandingItem value={teamStanding.all.win} label="Wins" />
+            <TeamDetailStandingItem
+              value={teamStanding.all.draw}
+              label="Draws"
+            />
+            <TeamDetailStandingItem
+              value={teamStanding.all.lose}
+              label="Losses"
+            />
+            <TeamDetailStandingItem value={teamStanding.goalsDiff} label="GD" />
+          </div>
         </div>
       </div>
     </div>

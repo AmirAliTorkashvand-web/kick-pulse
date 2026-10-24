@@ -30,9 +30,9 @@ export default function LeagueStats({ leagueData }) {
   const leastAwayWins = topStats(league.standings[0], "away.win", "least");
 
   return (
-    <>
+    <div className="col-span-8">
       <HomeSharedContent title="Top stats" col={3}>
-        <div className="gap-2 grid grid-cols-2">
+        <div className="gap-2 grid grid-cols-2 md:grid-cols-4">
           <Link to={`/teams/${mostWins.team.id}/${league.id}`}>
             <LeagueStatsItem
               title="Most Wins"
@@ -143,6 +143,6 @@ export default function LeagueStats({ leagueData }) {
 
         </div>
       </HomeSharedContent>
-    </>
+    </div>
   );
 }

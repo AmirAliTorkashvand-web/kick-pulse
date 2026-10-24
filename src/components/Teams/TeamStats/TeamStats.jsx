@@ -13,21 +13,15 @@ export default function TeamStats({ teamDetail }) {
   return (
     <>
       <div className="grid grid-cols-8 mt-4 gap-2">
-        <TeamStatsOverview team={team}/>
-        <TeamStatsGoals team={team}/>
-        <TeamStatsDefensive team={team}/>
-      </div>
-      <div className="grid grid-cols-8 mt-4 gap-2">
-        <TeamStatsGoalsByMinute team={team}/>
-        <TeamStatsHomeAway team={team}/>
-        <TeamStatsRecord team={team}/>
-      </div>
-      <div className="grid grid-cols-8 mt-4 gap-2">
-        <TeamStatsFormations team={team}/>
-        <TeamStatsPenalties team={team}/>
-      </div>
-      <div className="grid grid-cols-8 mt-4 gap-2">
-        <TeamStatsdiscipline team={team}/>
+        <TeamStatsOverview team={team} />
+        <TeamStatsGoals team={team} />
+        <TeamStatsDefensive team={team} />
+        <TeamStatsRecord team={team} />
+        <TeamStatsHomeAway team={team} />
+        <TeamStatsGoalsByMinute team={team} />
+        <TeamStatsFormations team={team} />
+        <TeamStatsPenalties team={team} />
+        <TeamStatsdiscipline team={team} />
       </div>
     </>
   );

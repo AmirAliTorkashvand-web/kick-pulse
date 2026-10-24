@@ -35,7 +35,7 @@ export default function TeamStadium({ team }) {
               />
             </div>
 
-            <div className="grid grid-cols-2 gap-4 pt-4">
+            <div className="flex flex-wrap gap-4 pt-4">
               <TeamStadiumDetailItem
                 title="Capacity"
                 value={team[0].venue.capacity}

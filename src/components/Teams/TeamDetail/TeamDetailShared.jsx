@@ -1,8 +1,8 @@
-export default function TeamDetailShared({ children, title , col }) {
+export default function TeamDetailShared({ children, title }) {
   return (
     <section
       className={`
-        col-span-${col}
+        col-span-8
         min-w-0
         h-full
         flex

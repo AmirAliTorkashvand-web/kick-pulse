@@ -12,8 +12,8 @@ export default function TeamStatsdiscipline({ team }) {
   const totalYellowcards = sumValues(yellowCardsData , "total")
   const totalRedcards = sumValues(redCardsData , "total")
   return (
-    <>
-      <HomeSharedContent title="Discipline" col={8}>
+    <div className="col-span-8">
+      <HomeSharedContent title="Discipline">
         <div className="flex gap-2">
           <TeamStatsCardsChart
             title="Yellow cards"
@@ -31,6 +31,6 @@ export default function TeamStatsdiscipline({ team }) {
           />
         </div>
       </HomeSharedContent>
-    </>
+    </div>
   );
 }

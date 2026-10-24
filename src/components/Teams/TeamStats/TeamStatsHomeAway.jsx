@@ -5,7 +5,7 @@ export default function TeamStatsHomeAway({ team }) {
   if (!team?.fixtures) return null;
   return (
     <>
-      <HomeSharedContent title="Home / Away performance" col={3}>
+      <HomeSharedContent title="Home / Away performance" col={4}>
         <div className="flex flex-col gap-2 w-full">
           <TeamStatsHomeAwayChart
             title="Home"

@@ -38,14 +38,7 @@ export default function HomeStats({ matches }) {
         Icon={LiveMatchesIcon}
         value={liveMatches.length}
         title="Live Matches"
-      />
-
-      <HomeStatsItem
-        color="text-cyan"
-        bgColor="bg-cyan/10"
-        Icon={CalendarIcon}
-        value={todayMatchesCount}
-        title="Today's Matches"
+        col={4}
       />
 
       <HomeStatsItem
@@ -54,20 +47,41 @@ export default function HomeStats({ matches }) {
         Icon={TopMatchIcon}
         value={topMatchesCount.length}
         title="Top Matches"
+        col={4}
       />
 
-      <Link to={`/matches/${biggestWin?.fixture?.id}`} className="col-span-2">
+      <HomeStatsItem
+        color="text-cyan"
+        bgColor="bg-cyan/10"
+        Icon={CalendarIcon}
+        value={todayMatchesCount}
+        title="Today's Matches"
+        col={8}
+      />
+
+      <Link
+        to={`/matches/${biggestWin?.fixture?.id}`}
+        className="col-span-8 min-w-0 lg:col-span-2"
+      >
         <HomeStatsItem
           color="text-purple"
           bgColor="bg-purple/10"
           Icon={TopScorerIcon}
           value={
-            <div className="flex items-center gap-1">
-              <span>{truncateTeamName(biggestWin?.teams?.home?.name, 7)}</span>
-              <span>{biggestWin?.goals?.home}</span>
-              <span>-</span>
-              <span>{biggestWin?.goals?.away}</span>
-              <span>{truncateTeamName(biggestWin?.teams?.away?.name, 7)}</span>
+            <div className="flex min-w-0 items-start gap-1">
+              <span className="max-w-full truncate">
+                {truncateTeamName(biggestWin?.teams?.home?.name, 7)}
+              </span>
+
+              <div className="flex items-center gap-1">
+                <span>{biggestWin?.goals?.home}</span>
+                <span>-</span>
+                <span>{biggestWin?.goals?.away}</span>
+              </div>
+
+              <span className="max-w-full truncate">
+                {truncateTeamName(biggestWin?.teams?.away?.name, 7)}
+              </span>
             </div>
           }
           title="Biggest win"

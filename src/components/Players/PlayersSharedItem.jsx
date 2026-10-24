@@ -32,7 +32,6 @@ export default function PlayersSharedItem({ item, onClick }) {
 
       <div>
         <h3 className="text-sm font-semibold text-white">{item.name}</h3>
-        <p className="text-xs text-gray-400">League</p>
       </div>
     </div>
   );

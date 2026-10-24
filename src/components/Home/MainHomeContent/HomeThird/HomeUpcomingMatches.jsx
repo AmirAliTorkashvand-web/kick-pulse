@@ -7,7 +7,7 @@ export default function HomeUpcomingMatches({ matches }) {
   const topUpcomingMatches = getTopUpcomingMatches(matches);
 
   return (
-    <HomeSharedContent title="Upcoming Matches" col={3}>
+    <HomeSharedContent title="Upcoming Matches" col={4}>
       <div className="flex flex-col gap-2">
         {topUpcomingMatches.map((match) => (
           <>

@@ -19,12 +19,12 @@ export default function MatchLineupsSubs({ fixture }) {
   });
 
   return (
-    <>
+    <div className="col-span-8">
       {fixture?.lineups && (
         <HomeSharedContent col={8} title="Bench">
           <div className="grid grid-cols-8 gap-6 px-8">
-            <div className="col-span-4">
-              <div className="grid grid-cols-2 gap-2">
+            <div className="col-span-8 md:col-span-4">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
                 {homeBench.map((player) => (
                   <Link to={`/players/${player.startXI.player.id}`}>
                     <MatchLineupsSubsItem
@@ -37,7 +37,7 @@ export default function MatchLineupsSubs({ fixture }) {
               </div>
             </div>
 
-            <div className="col-span-4">
+            <div className="col-span-8 md:col-span-4">
               <div className="grid grid-cols-2 gap-2">
                 {awayBench.map((player) => (
                   <Link to={`/players/${player.startXI.player.id}`}>
@@ -53,6 +53,6 @@ export default function MatchLineupsSubs({ fixture }) {
           </div>
         </HomeSharedContent>
       )}
-    </>
+    </div>
   );
 }

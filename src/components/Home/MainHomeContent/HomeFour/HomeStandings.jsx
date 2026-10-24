@@ -7,8 +7,12 @@ export default function HomeStandings({ league }) {
   const standings = leagueData?.standings?.[0] ?? [];
 
   return (
-    <Link to={`/leagues/${leagueData?.id}`} className="col-span-3">
+    <Link
+      to={`/leagues/${leagueData?.id}`}
+      className="col-span-8 md:col-span-4 lg:col-span-4 min-w-0"
+    >
       <HomeSharedContent
+        col={5}
         title={
           <div className="flex items-center gap-2">
             <span>{leagueData?.name || "Standings"}</span>

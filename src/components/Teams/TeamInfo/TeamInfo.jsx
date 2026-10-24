@@ -89,7 +89,7 @@ export default function TeamInfo({ teamDetail }) {
               <TeamDetailRecentForm teamStanding={teamStanding} />
             </TeamDetailShared>
 
-            <TeamDetailShared title="Team information" col={3}>
+            <TeamDetailShared title="Team information">
               <TeamInformation team={teamDetail} />
             </TeamDetailShared>
           </div>

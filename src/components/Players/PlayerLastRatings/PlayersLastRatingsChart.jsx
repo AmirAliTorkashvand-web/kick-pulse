@@ -19,7 +19,7 @@ export default function PlayerAppearancesChart({ player }) {
   return (
     <div className="w-full rounded-xl bg-surface p-4">
       <div className="h-[300px] w-full">
-        <ResponsiveContainer width="100%" height="150%">
+        <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={data}
             margin={{

@@ -4,12 +4,13 @@ import LineupTeam from "./MatchLineupTeam";
 
 export default function MatchLineup({ fixture }) {
   const homePlayers = getPlayerMeta({
-    fixture: fixture,
+    fixture,
     teamId: fixture?.teams?.home?.id,
     field: "startXI",
   });
+
   const awayPlayers = getPlayerMeta({
-    fixture: fixture,
+    fixture,
     teamId: fixture?.teams?.away?.id,
     field: "startXI",
   });
@@ -28,25 +29,20 @@ export default function MatchLineup({ fixture }) {
 
             <div className="flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-[#00e676]" />
-              <span className="text-xs font-medium text-[#a8b3bf]">
-                Full Time
-              </span>
+              <span className="text-xs text-[#a8b3bf]">Full Time</span>
             </div>
           </div>
 
-          <div className="relative flex min-h-[420px] items-center justify-center p-5">
+          <div className="relative flex min-h-[280px] items-center justify-center p-2 sm:min-h-[360px] sm:p-4 lg:min-h-[420px] lg:p-5">
             <div
               style={{ backgroundImage: `url(${pitch})` }}
-              className="relative aspect-video w-full rounded-lg bg-contain bg-center bg-no-repeat"
-            ></div>
-
-            <LineupTeam players={homePlayers} side="home" />
-            <LineupTeam players={awayPlayers} side="away" />
+              className="relative w-full aspect-[3/4] sm:aspect-video rounded-lg bg-cover bg-center bg-no-repeat"
+            >
+              <LineupTeam players={homePlayers} side="home" />
+              <LineupTeam players={awayPlayers} side="away" />
+            </div>
           </div>
         </div>
-      )}
-      {!fixture.lineups && (
-        <span>Match has not started yet</span>
       )}
     </>
   );

@@ -6,7 +6,7 @@ export default function TeamStatsGoals({ team }) {
   if (!team?.goals) return null;
 
   return (
-    <HomeSharedContent title="Goals" col={2}>
+    <HomeSharedContent title="Goals" col={3}>
       <div className="grid grid-cols-2 gap-3">
         <div className="flex min-w-0 flex-col gap-2">
           <TeamStatsInfoBox value={team.goals.for.total.total} title="scored" />

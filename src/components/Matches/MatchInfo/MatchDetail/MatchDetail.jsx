@@ -18,7 +18,7 @@ import MatchDetailItem from "./MatchDetailItem";
 
 export default function MatchDetail({ fixture }) {
   return (
-    <>
+    <div className="col-span-8">
       <HomeSharedContent col={8} title="Match Info">
         <div className="grid grid-cols-3 gap-5">
           <MatchDetailItem
@@ -88,6 +88,6 @@ export default function MatchDetail({ fixture }) {
           </Link>
         </div>
       </HomeSharedContent>
-    </>
+    </div>
   );
 }

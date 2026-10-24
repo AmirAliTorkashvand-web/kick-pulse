@@ -17,22 +17,24 @@ export default function PlayerDetailStats({ player }) {
   const finalBoxes = totalValue(sortStats);
 
   return (
-    <div className="col-span-5 mt-4 rounded-lg bg-surface p-4">
+    <div className="col-span-8 mt-4 rounded-lg bg-surface p-4">
       <span className="font-bold text-white">Detailed stats</span>
 
-      <div className="mt-4 grid grid-cols-5 gap-4">
+      <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-5">
         {Object.entries(finalBoxes).map(([category, stats]) => {
           const fields = boxContainer(stats);
 
           return (
             <PlayerDetailStatsSharedItem
+              key={category}
               color={categoryColors(category)}
               title={category}
             >
               {Object.entries(fields).flatMap(([box, field]) => (
-                <PlayerDetailStatsBox title={box}>
+                <PlayerDetailStatsBox key={box} title={box}>
                   {field.map((stat) => (
                     <PlayerDetailStatItem
+                      key={stat.field}
                       title={stat.field}
                       value={stat.value}
                     />

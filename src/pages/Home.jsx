@@ -9,7 +9,6 @@ import { getDateRange, getFeaturedMatches } from "../utils/HomeUtils/HomeUtils";
 import {
   getLeague,
   getStandings,
-  getTopAssiters,
   getTopScorers,
   getTransfers,
 } from "../services/Home/MatchContentServices";
@@ -19,7 +18,6 @@ export default function Home() {
   const [fixtures, setFixtures] = useState([]);
   const [matches, setMatches] = useState([]);
   const [topScorer, setTopScorer] = useState([]);
-  const [topAssiter, setTopAssiter] = useState([]);
   const [transfers, setTransfers] = useState([]);
   const [standing, setStanding] = useState([]);
   const [selectedTransferTeam, setSelectedTransferTeam] = useState(null);
@@ -112,25 +110,6 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    const fetchTopAssiter = async () => {
-      try {
-        const data = await getTopAssiters({
-          league: 2,
-          season: 2024,
-        });
-
-        const topFour = data.response.slice(0, 4);
-
-        setTopAssiter(topFour);
-      } catch (error) {
-        console.log("Error fetching top scorers:", error);
-      }
-    };
-
-    fetchTopAssiter();
-  }, []);
-
-  useEffect(() => {
     const fetchStanding = async () => {
       try {
         const leagues = [
@@ -166,7 +145,6 @@ export default function Home() {
         topScorer={topScorer}
         transfers={transfers}
         selectedTransferTeam={selectedTransferTeam}
-        topAssiter={topAssiter}
         league={standing}
       />
     </>

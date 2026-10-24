@@ -14,25 +14,26 @@ export default function MatchTimeline({ fixtureData }) {
 
   return (
     <>
-      {fixtureData.events && (
-        <HomeSharedContent title="Events" col={8}>
-          {eventsSide.map((item) => {
-            const meta = getEventMeta({ event: item.event });
-            return (
-              <MatchTimelineItem
-                Icon={meta.Icon}
-                iconColor={meta.iconColor}
-                side={item.side}
-                player={meta.player}
-                secondaryText={meta.secondaryText}
-                minute={item.event.time.elapsed}
-                playerId={meta.playerId}
-              />
-            );
-          })}
-        </HomeSharedContent>
-      )}
-      {!fixtureData.events && <span>Match has not started yet</span>}
+      <div className="col-span-8">
+        {fixtureData.events && (
+          <HomeSharedContent title="Events" col={8}>
+            {eventsSide.map((item) => {
+              const meta = getEventMeta({ event: item.event });
+              return (
+                <MatchTimelineItem
+                  Icon={meta.Icon}
+                  iconColor={meta.iconColor}
+                  side={item.side}
+                  player={meta.player}
+                  secondaryText={meta.secondaryText}
+                  minute={item.event.time.elapsed}
+                  playerId={meta.playerId}
+                />
+              );
+            })}
+          </HomeSharedContent>
+        )}
+      </div>
     </>
   );
 }

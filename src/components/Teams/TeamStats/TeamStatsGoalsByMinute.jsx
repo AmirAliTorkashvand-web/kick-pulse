@@ -6,7 +6,7 @@ export default function TeamStatsGoalsByMinute({ team }) {
   const data = goalsByMinuteData(team);
   return (
     <>
-      <HomeSharedContent title="Goals by minute" col={3}>
+      <HomeSharedContent title="Goals by minute" col={4}>
         <div className="flex gap-2 w-full">
           <TeamStatsGoalsByMinuteChart data={data} />
         </div>

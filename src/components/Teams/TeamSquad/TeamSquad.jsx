@@ -20,7 +20,7 @@ export default function TeamSquad({ player }) {
           <div key={position}>
             <h3 className={`pb-3 ${color}`}>{position}</h3>
 
-            <div className="grid grid-cols-4 gap-2">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
               {filteredPlayers.map((player) => (
                 <Link to={`/players/${player.player.id}`}>
                   <TeamSquadItem key={player.player.id} player={player} />

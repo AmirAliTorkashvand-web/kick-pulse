@@ -1,6 +1,6 @@
-export default function HomeStatsItem({ color, bgColor, Icon, value, title }) {
+export default function HomeStatsItem({ color, bgColor, Icon, value, title , col }) {
   return (
-    <div className="flex items-center gap-3 rounded-xl bg-surface p-4 col-span-2">
+    <div className={`flex items-center gap-3 rounded-xl bg-surface p-4 lg:col-span-2 col-span-${col} overflow-hidden`}>
       <div
         className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg ${bgColor} ${color}`}
       >

@@ -10,7 +10,9 @@ export default function MatchDatesItem({ title, date, active, onClick }) {
           : "border-border bg-surface-light hover:border-brand/40 hover:bg-surface-hover"
       }`}
     >
-      <CalendarIcon color={active ? "var(--color-brand)" : "white"} />
+      <div className="hidden md:block">
+        <CalendarIcon color={active ? "var(--color-brand)" : "white"}/>
+      </div>
 
       <div className="flex flex-col items-start gap-1">
         <span

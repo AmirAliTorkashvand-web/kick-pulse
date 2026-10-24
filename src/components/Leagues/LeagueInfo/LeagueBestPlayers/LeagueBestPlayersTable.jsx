@@ -28,7 +28,7 @@ export default function LeagueBestPlayersTable({ Player, category, col }) {
 
   return (
     <div
-      className={`col-span-${col} overflow-hidden rounded-xl border border-border bg-surface-light`}
+      className={`col-span-8 md:col-span-${col} overflow-hidden rounded-xl border border-border bg-surface-light`}
     >
       <table className="w-full border-collapse">
         <thead>

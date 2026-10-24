@@ -14,19 +14,20 @@ export default function HomeStandingItem({ league, index }) {
         min-h-0
         min-w-0
         w-full
-        grid-cols-[30px_minmax(0,1fr)_36px_48px_52px]
+        grid-cols-[30px_minmax(0,1fr)_30px_38px_42px]
         items-center
-        gap-2
+        gap-1.5
         overflow-hidden
         border-b
         border-border/50
-        px-3
+        px-2
         py-3
         transition-all
         duration-200
         hover:bg-surface-hover
         sm:grid-cols-[34px_minmax(0,1fr)_46px_58px_62px]
         sm:gap-3
+        sm:px-3
       `}
     >
       <div
@@ -45,13 +46,13 @@ export default function HomeStandingItem({ league, index }) {
           }
         `}
       />
-
       <div className="flex items-center justify-center">
         <span
           className={`
             flex
             h-7
             w-7
+            shrink-0
             items-center
             justify-center
             rounded-lg
@@ -73,13 +74,13 @@ export default function HomeStandingItem({ league, index }) {
         </span>
       </div>
 
-      <div className="flex min-w-0 items-center gap-3">
+      <div className="flex min-w-0 items-center gap-2 sm:gap-3">
         <div
           className={`
             relative
             flex
-            h-9
-            w-9
+            h-8
+            w-8
             shrink-0
             items-center
             justify-center
@@ -90,6 +91,8 @@ export default function HomeStandingItem({ league, index }) {
             p-1.5
             transition-all
             duration-200
+            sm:h-9
+            sm:w-9
             ${
               isTopThree
                 ? "border-brand/20"
@@ -105,17 +108,13 @@ export default function HomeStandingItem({ league, index }) {
         </div>
 
         <div className="min-w-0 flex-1">
-          <span className="block truncate text-sm font-bold text-text-primary">
+          <span className="block whitespace-normal text-xs font-bold leading-5 text-text-primary sm:text-sm">
             {team?.name || "Unknown Team"}
-          </span>
-
-          <span className="mt-0.5 block text-[9px] font-medium uppercase tracking-[0.14em] text-text-muted">
-            {isLeader ? "League Leader" : `Position ${index + 1}`}
           </span>
         </div>
       </div>
 
-      <div className="flex flex-col items-center justify-center">
+      <div className="flex min-w-0 flex-col items-center justify-center">
         <span className="text-[9px] font-medium uppercase tracking-wider text-text-muted">
           P
         </span>
@@ -125,7 +124,7 @@ export default function HomeStandingItem({ league, index }) {
         </span>
       </div>
 
-      <div className="flex flex-col items-center justify-center">
+      <div className="flex min-w-0 flex-col items-center justify-center">
         <span className="text-[9px] font-medium uppercase tracking-wider text-text-muted">
           GD
         </span>
@@ -133,6 +132,7 @@ export default function HomeStandingItem({ league, index }) {
         <span
           className={`
             mt-0.5
+            whitespace-nowrap
             font-mono
             text-xs
             font-bold
@@ -149,7 +149,7 @@ export default function HomeStandingItem({ league, index }) {
         </span>
       </div>
 
-      <div className="flex flex-col items-end justify-center">
+      <div className="flex min-w-0 flex-col items-end justify-center">
         <span className="text-[9px] font-medium uppercase tracking-wider text-text-muted">
           PTS
         </span>
