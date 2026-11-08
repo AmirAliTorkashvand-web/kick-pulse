@@ -1,4 +1,4 @@
-<img width="1900" height="16384" alt="localhost_5173_leagues (1)" src="https://github.com/user-attachments/assets/633abf18-8381-4d42-819f-de105b649093" /># Kick Pulse ⚽
+# Kick Pulse ⚽
 
 **A responsive football statistics and match-tracking web application inspired by FotMob.**
 
@@ -17,6 +17,7 @@ The project was built with React and modern frontend technologies, with particul
 
 ### Match Page
 <img width="1900" height="16384" alt="localhost_5173_matches" src="https://github.com/user-attachments/assets/16727fb8-6cb1-4712-9474-3e31c33d3222" />
+<img width="1900" height="16384" alt="localhost_5173_leagues (1)" src="https://github.com/user-attachments/assets/633abf18-8381-4d42-819f-de105b649093" />
 
 ### Match Details
 <img width="1900" height="1900" alt="localhost_5173_matches_1557464" src="https://github.com/user-attachments/assets/66fc4651-5dcc-4304-bbcc-2581ae965300" />
