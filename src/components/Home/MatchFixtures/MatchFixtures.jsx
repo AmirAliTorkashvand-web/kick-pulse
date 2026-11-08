@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -10,6 +10,8 @@ import MatchFixtureItem from "./MatchFeatureItem";
 import { getLeagueBackground } from "./LeagueBackGround";
 
 function MatchFixture({ matches }) {
+  const navigate = useNavigate();
+
   if (!matches.length) {
     return <div className="h-95 w-full animate-pulse rounded-2xl bg-surface" />;
   }
@@ -32,12 +34,23 @@ function MatchFixture({ matches }) {
     >
       {matches.map((match) => (
         <SwiperSlide key={match.fixture.id}>
-          <Link to={`/matches/${match.fixture.id}`}>
+          <div
+            className="cursor-pointer"
+            tabIndex={0}
+            onClick={() => navigate(`/matches/${match.fixture.id}`)}
+            onKeyDown={(e) => {
+              if (e.target !== e.currentTarget) return;
+
+              if (e.key === "Enter") {
+                navigate(`/matches/${match.fixture.id}`);
+              }
+            }}
+          >
             <MatchFixtureItem
               match={match}
               background={getLeagueBackground(match.league.id)}
             />
-          </Link>
+          </div>
         </SwiperSlide>
       ))}
     </Swiper>

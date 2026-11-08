@@ -10,11 +10,9 @@ export default function HomeUpcomingMatches({ matches }) {
     <HomeSharedContent title="Upcoming Matches" col={4}>
       <div className="flex flex-col gap-2">
         {topUpcomingMatches.map((match) => (
-          <>
-            <Link to={`/matches/${match.fixture.id}`}>
-              <HomeUpcomingMatchesItems key={match.fixture.id} match={match} />
-            </Link>
-          </>
+          <Link to={`/matches/${match.fixture.id}`} key={match.fixture.id}>
+            <HomeUpcomingMatchesItems match={match} />
+          </Link>
         ))}
       </div>
     </HomeSharedContent>

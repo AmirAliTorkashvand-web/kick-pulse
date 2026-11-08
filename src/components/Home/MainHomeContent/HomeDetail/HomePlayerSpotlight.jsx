@@ -22,11 +22,11 @@ export default function HomeTransfers({ transfers, selectedTransferTeam }) {
       }
     >
       {transfers?.map((transfer, index) => (
-        <Link to={`/players/${transfer.player.id}`}>
-          <HomeTransfersItem
-            key={`${transfer.player.id}-${transfer.date}-${index}`}
-            transfer={transfer}
-          />
+        <Link
+          to={`/players/${transfer.player.id}`}
+          key={`${transfer.player.id}-${transfer.date}-${index}`}
+        >
+          <HomeTransfersItem transfer={transfer} />
         </Link>
       ))}
     </HomeSharedContent>

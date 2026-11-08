@@ -40,8 +40,8 @@ export default function LeagueInfo({ league, leagueId }) {
       {step === "fixtures" && (
         <div className="flex flex-col mt-4 gap-2">
           {fixture.map((match) => (
-            <Link to={`/matches/${match.fixture.id}`}>
-              <MatchesLeagueMatchItem key={match.fixture.id} match={match} />
+            <Link to={`/matches/${match.fixture.id}`} key={match.fixture.id}>
+              <MatchesLeagueMatchItem match={match} />
             </Link>
           ))}
         </div>

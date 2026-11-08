@@ -36,9 +36,12 @@ export default function LeaguesContainer() {
     },
   );
 
-  const sortedLeagues = Object.values(leaguesData).sort(
-    (a, b) => b.score - a.score,
-  );
+  const sortedLeagues = Object.values(leaguesData).sort((a, b) => {
+    if (a.country.name === "World") return 1;
+    if (b.country.name === "World") return -1;
+
+    return b.score - a.score;
+  });
 
   useEffect(() => {
     if (!leagueId) return;
@@ -61,12 +64,12 @@ export default function LeaguesContainer() {
         <div className="col-span-8 flex flex-col gap-4">
           {sortedLeagues.map(({ country, leagues }) => (
             <MatchesLeagueItem
-              key={country.id}
+              key={country.flag}
               league={country}
               defaultOpen={false}
             >
               {leagues.map((league) => (
-                <LeagueTournamentsItem key={league.id} league={league} />
+                <LeagueTournamentsItem key={league.league.id} league={league} />
               ))}
             </MatchesLeagueItem>
           ))}

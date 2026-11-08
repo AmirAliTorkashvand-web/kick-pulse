@@ -174,13 +174,13 @@ export function Stadium() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlnsXlink="http://www.w3.org/1999/xlink"
       width="20px"
       height="20px"
       viewBox="0 0 128 128"
       aria-hidden="true"
       role="img"
-      class="iconify iconify--noto"
+      className="iconify iconify--noto"
       preserveAspectRatio="xMidYMid meet"
     >
       <path

@@ -47,8 +47,8 @@ export default function MatchesLeague({ matches, activeFilter }) {
       {sortedLeagues.map(({ league, matches }) => (
         <MatchesLeagueItem key={league.id} league={league} defaultOpen={true}>
           {matches.map((match) => (
-            <Link to={`/matches/${match.fixture.id}`}>
-              <MatchesLeagueMatchItem key={match.fixture.id} match={match} />
+            <Link to={`/matches/${match.fixture.id}`} key={match.fixture.id}>
+              <MatchesLeagueMatchItem match={match} />
             </Link>
           ))}
         </MatchesLeagueItem>

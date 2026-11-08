@@ -20,9 +20,8 @@ export default function LineupTeam({ players = [], side = "home" }) {
         });
 
         return (
-          <Link to={`/players/${player.startXI.player.id}`}>
+          <Link to={`/players/${player.startXI.player.id}`} key={player.startXI.player.id}>
             <PlayerOnPitch
-              key={player.startXI.player.id}
               player={player.startXI.player.name}
               photo={player.playerPhoto}
               position={position}

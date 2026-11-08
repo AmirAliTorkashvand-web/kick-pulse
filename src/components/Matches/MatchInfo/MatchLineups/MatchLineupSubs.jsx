@@ -24,7 +24,7 @@ export default function MatchLineupsSubs({ fixture }) {
         <HomeSharedContent col={8} title="Bench">
           <div className="grid grid-cols-8 gap-6 px-8">
             <div className="col-span-8 md:col-span-4">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+              <div className="grid grid-cols-2 gap-2">
                 {homeBench.map((player) => (
                   <Link to={`/players/${player.startXI.player.id}`}>
                     <MatchLineupsSubsItem

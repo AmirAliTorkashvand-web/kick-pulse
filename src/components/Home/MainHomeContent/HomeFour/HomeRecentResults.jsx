@@ -8,8 +8,8 @@ export default function HomeRecentResults({ matches }) {
       <HomeSharedContent col={4} title="Recent Results">
         <div className="flex flex-col gap-2">
           {matches?.map((match) => (
-            <Link to={`/matches/${match.fixture.id}`}>
-              <HomeRecentResultsItem key={match.fixture.id} match={match} />
+            <Link to={`/matches/${match.fixture.id}`} key={match.fixture.id}>
+              <HomeRecentResultsItem match={match} />
             </Link>
           ))}
         </div>
